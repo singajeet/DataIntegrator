@@ -7,6 +7,7 @@
 """
 
 import ConfigParser
+from os import getcwd
 
 class ConfigManager:
   """Config Manager class will be used to load and store configuration system wide
@@ -15,8 +16,10 @@ class ConfigManager:
   def __init__(self):
     """Config Manager will be initialized here
     """
+    self.config_file_name = 'Configuration.cfg'
+    self.config_path = getcwd() + '/scripts/core/config/'
     self.config = ConfigParser.ConfigParser()
-    self.config.read('Configuration.cfg')
+    self.config.read(self.config_path + self.config_file_name)
 
 
   def get(self, section, key, is_raw):
@@ -69,3 +72,10 @@ class ConfigManager:
       bool. Returns `True` if section is removed else returns `False`
     """
     self.config.remove_section(section)
+
+
+  def save(self):
+    """Saves the configuration to the file.
+    """
+    with open(self.config_path + self.config_file_name, 'wb') as configfile:
+      self.config.write(configfile)

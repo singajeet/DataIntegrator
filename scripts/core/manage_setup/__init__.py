@@ -4,4 +4,7 @@
 
 """
 
-import install
+from logging.config import fileConfig
+from os import getcwd
+
+fileConfig(''.join([getcwd(), '/scripts/core/log/logging_config.ini']))

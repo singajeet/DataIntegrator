@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 6
 
    scripts/core/Core
-   scripts/core/manage_project/ManageProject
+   scripts/core/manage_setup/ManageProject
 
 Indices and tables
 ==================
