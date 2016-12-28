@@ -4,6 +4,178 @@
 		"selected_items":
 		[
 			[
+				"so",
+				"source_name\tstatement"
+			],
+			[
+				"file",
+				"file_path\tstatement"
+			],
+			[
+				"object",
+				"object\tclass"
+			],
+			[
+				"conf",
+				"config\tmodule"
+			],
+			[
+				"db_s",
+				"db_session\tstatement"
+			],
+			[
+				"com",
+				"commit\tfunction"
+			],
+			[
+				"sql",
+				"sql_debug\tfunction"
+			],
+			[
+				"exe",
+				"execute"
+			],
+			[
+				"test",
+				"test_database\tfunction"
+			],
+			[
+				"close",
+				"close_db_connection\tfunction"
+			],
+			[
+				"tes",
+				"test_db_connection\tfunction"
+			],
+			[
+				"cre",
+				"create_db_session\tfunction"
+			],
+			[
+				"crea",
+				"create_db_engine\tfunction"
+			],
+			[
+				"meta",
+				"metadata_db\tstatement"
+			],
+			[
+				"Exce",
+				"Exception\tclass"
+			],
+			[
+				"load",
+				"load_details_from_config\tfunction"
+			],
+			[
+				"Ecep",
+				"Exception\tclass"
+			],
+			[
+				"sav",
+				"save_details_to_config\tfunction"
+			],
+			[
+				"pr",
+				"prompt_details\tfunction"
+			],
+			[
+				"Or",
+				"OracleMetadataDatabase\tclass"
+			],
+			[
+				"DBTY",
+				"DBTYPE_ORACLE\tstatement"
+			],
+			[
+				"Meta",
+				"MetadataDatabase\tclass"
+			],
+			[
+				"set",
+				"setLevel\tfunction"
+			],
+			[
+				"exc_",
+				"exc_info\tfunction"
+			],
+			[
+				"Session",
+				"Session\tclass"
+			],
+			[
+				"dbse",
+				"dbsession\tstatement"
+			],
+			[
+				"create",
+				"create_engine\tfunction"
+			],
+			[
+				"Se",
+				"Session\tclass"
+			],
+			[
+				"se",
+				"sessionmaker\timport"
+			],
+			[
+				"config",
+				"configfile"
+			],
+			[
+				"con",
+				"config_file_name\tstatement"
+			],
+			[
+				"has",
+				"has_section\tfunction"
+			],
+			[
+				"sh",
+				"shortcuts\tmodule"
+			],
+			[
+				"__",
+				"__doc__\tinstance"
+			],
+			[
+				"fi",
+				"fileConfig\tfunction"
+			],
+			[
+				"im",
+				"import\tkeyword"
+			],
+			[
+				"Project",
+				"ProjectManager"
+			],
+			[
+				"rem",
+				"remove_section\tfunction"
+			],
+			[
+				"add",
+				"add_section"
+			],
+			[
+				"in",
+				"info\tfunction"
+			],
+			[
+				"wa",
+				"warn\tstatement"
+			],
+			[
+				"proce",
+				"processors"
+			],
+			[
+				"iter",
+				"iterator"
+			],
+			[
 				"Agile",
 				"AgileSessionFactory"
 			],
@@ -28,7 +200,7 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "sql",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -40,7 +212,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 432.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -58,14 +230,48 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator"
+	],
 	"file_history":
 	[
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/cliffdemo/main.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/cliffdemo/list.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/cliffdemo/show.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/cliffdemo/simple.py",
-		"/C/Users/asingh/Hands-On/Python/ora-etl/oracle_etl/cli.py",
-		"/C/Users/asingh/.boss/cache/tmpz54ilg/README.md",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-workspace",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-project",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/configuration.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/install.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/database_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/inmemory_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/config_manager.py",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sqlalchemy/engine/result.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/config_manager.py",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/configuration.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/setup_details.xml",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config_manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/logging_config.ini",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/configuration.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/logger.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/index.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/ManageProject.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/Core.rst",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/conf.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/ManageProject.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/install.py",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/README",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/LICENSE",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/SQLToolsConnections.sublime-settings",
 		"/D/Spansion/Projects/DNA/Final Code/PANDA_DEV.sql",
 		"/D/Spansion/Projects/DNA/Final Code/PANDA_DEV_DATA.sql",
@@ -81,17 +287,12 @@
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
-		"/C/Users/asingh/Hands-On/Python/TurboGear/tg2/wiki20/setup.py",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings"
+		"/C/Users/asingh/Hands-On/Python/TurboGear/tg2/wiki20/setup.py"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -105,6 +306,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_key_fallback",
+			"indent",
+			"tab",
+			"error",
+			"show",
 			"293"
 		],
 		"highlight": true,
@@ -162,6 +368,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
 	},
 	"pinned_build_system": "",
 	"project": "data_integrator.sublime-project",
