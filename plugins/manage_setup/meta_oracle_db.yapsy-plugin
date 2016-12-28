@@ -1,0 +1,9 @@
+[Core]
+Name = OracleMetadataDatabase
+Module = meta_oracle_db
+
+[Documentation]
+Description = Provides functionaly to store metadata in Oracle database
+Author = Ajeet Singh
+Version = 0.1
+Website = None

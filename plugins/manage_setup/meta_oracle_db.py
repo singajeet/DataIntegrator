@@ -9,14 +9,15 @@ from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
 from pony.orm import Database, db_session
-from scripts.core.manage_setup.iplugins import IMetadataDatabasePlugin
+import scripts.core.manage_setup.iplugins as plugintypes
 
 
-class OracleMetadataDatabasePlugin(IMetadataDatabasePlugin):
+class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of Oracle Database
     """
 
-    logger = logging.getLogger(__package__ + '.OracleMetadataDatabasePlugin')
+    source_plugin_name = 'OracleMetadataDatabasePlugin'
+    logger = logging.getLogger('{}.OracleMetadataDatabasePlugin'.format(__package__))
     dbhost = None
     dbport = None
     dbservice = None
@@ -24,7 +25,7 @@ class OracleMetadataDatabasePlugin(IMetadataDatabasePlugin):
     dbpassword = None
 
     def __init__(self):
-        IMetadataDatabasePlugin.__init__(self)
+        plugintypes.IMetadataDatabasePlugin.__init__(self)
         self.dbtype = self.DBTYPE_ORACLE
 
     def prompt_details(self):

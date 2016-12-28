@@ -5,9 +5,14 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-from scripts.core.manage_setup.iplugins import IMetadataDatabasePlugin
+import scripts.core.manage_setup.iplugins as plugintypes
 
 
-class SqlLiteMetadataDatabase(IMetadataDatabasePlugin):
+class SqlLiteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of SqlLite Database
     """
+    source_plugin_name = 'SqlLiteMetadataDatabase'
+
+    def __init__(self):
+        plugintypes.IMetadataDatabasePlugin.__init__(self)
+        self.dbtype = self.DBTYPE_SQLLITE_MEM
