@@ -10,6 +10,7 @@ import logging
 from config.config_manager import ConfigManager
 from prompt_toolkit import prompt
 from pony.orm import Database, db_session
+from prompt_toolkit.shortcuts import confirm
 
 
 class MetadataDatabase:
@@ -274,6 +275,11 @@ class SetupManager:
             self.metadata_db.prompt_details()
             self.metadata_db.save_details_to_config(self.config)
 
+        answer = confirm('Want to test the saved database settings(y/n): ')
+        if answer == 'y':
+            engine = self.metadata_db.create_db_engine(self.config)
+            self.metadata_db.test_db_connection(engine)
+
     def test_database(self):
         self.metadata_db = OracleMetadataDatabase()
         engine = self.metadata_db.create_db_engine(self.config)
@@ -281,4 +287,4 @@ class SetupManager:
 
 
 if __name__ == '__main__':
-    SetupManager().test_database()
+    SetupManager().install()

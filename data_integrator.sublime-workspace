@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pro",
+				"prompt_toolkit"
+			],
+			[
 				"so",
 				"source_name\tstatement"
 			],
@@ -191,6 +195,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "scripts/core/manage_setup/__init__.py",
+			"settings":
+			{
+				"buffer_size": 217,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/Configuration.cfg",
+			"settings":
+			{
+				"buffer_size": 11,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/core/manage_setup/install.py",
+			"settings":
+			{
+				"buffer_size": 9671,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -200,9 +230,21 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "",
+		"last_filter": "lint",
 		"selected_items":
 		[
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"ana",
+				"Build With: Anaconda Python Builder"
+			],
+			[
+				"",
+				"Anaconda: Show error list"
+			],
 			[
 				"sql",
 				"Set Syntax: PL/SQL (Oracle)"
@@ -232,10 +274,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/log",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/log/logging_config.ini",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-workspace",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
@@ -329,8 +378,111 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "scripts/core/manage_setup/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/Configuration.cfg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/core/manage_setup/install.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9671,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								350
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -365,6 +517,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -373,7 +529,7 @@
 	{
 		"height": 100.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Anaconda Python Builder",
 	"project": "data_integrator.sublime-project",
 	"replace":
 	{
