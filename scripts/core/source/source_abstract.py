@@ -6,7 +6,6 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 
-
 class Source(object):
     source_name = None
     source_type = None
