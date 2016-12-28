@@ -277,6 +277,7 @@ class SetupManager:
 
         answer = confirm('Want to test the saved database settings(y/n): ')
         if answer == 'y':
+            self.logger.debug('Want to test db settings: User selection => %s'.format(answer))
             engine = self.metadata_db.create_db_engine(self.config)
             self.metadata_db.test_db_connection(engine)
 
@@ -287,4 +288,4 @@ class SetupManager:
 
 
 if __name__ == '__main__':
-    SetupManager().install()
+    pass
