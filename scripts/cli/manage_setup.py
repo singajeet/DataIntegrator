@@ -5,34 +5,47 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import plac
+import click
 from scripts.core.manage_setup.install import SetupManager
 
 
-@plac.annotations(install=('activate the install process for Data Integrator', 'flag', 'i'),
-                  testdb=('Test stored database settings', 'flag', 't'),
-                  list=('List all available databases', 'flag', 'l'),
-                  help=('show help', 'flag'))
-def main(install, testdb, list, help):
-    if not any([install, testdb, list, help]):
-        yield('no arguments passed, use .help to see the available commands')
-    elif help:
-        yield 'Commands: .install, .testdb, .list, .help'
-    elif install:
-        SetupManager().install()
-    elif testdb:
-        SetupManager().test_database()
-    elif list:
-        print('List of available databases:')
-        print('----------------------------')
-        count = 0
-        for db in SetupManager().list():
-            print('{}. {}'.format(count, db))
-            count += 1
+@click.group()
+def main():
+    """Command Line Interface (CLI) for Data Integrator setup support
+    """
+    print('Command Line Interface (CLI) for Data Integrator setup support\n')
 
 
-main.prefix_chars = '.'
+@main.command()
+def list():
+    """List all the installed plugins for storing metadata in the database
+    """
+    print('Below is the list of installed database plugins:')
+    print('------------------------------------------------')
+    counter = 0
+    for db in SetupManager().list():
+        print('{}. {}'.format(counter, db))
+        counter += 1
+
+
+@main.command()
+@click.argument('db_plugin_name')
+def install(db_plugin_name):
+    """Install and configure the selected database (passed as argument)
+        for storing the metadata
+
+    Args:
+        db_plugin_name(str):  Name of db plugin that needs to be installed
+    """
+    SetupManager().install(db_plugin_name)
+
+
+@main.command()
+def testdb():
+    """Tests the connectivity of existing database configured for storing metadata
+    """
+    SetupManager().test_database()
+
 
 if __name__ == '__main__':
-    for output in plac.call(main):
-        print(output)
+    main()

@@ -16,7 +16,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of Oracle Database
     """
 
-    source_plugin_name = 'OracleMetadataDatabasePlugin'
+    iplugin_name = 'OracleMetadataDatabasePlugin'
     logger = logging.getLogger('{}.OracleMetadataDatabasePlugin'.format(__package__))
     dbhost = None
     dbport = None
@@ -97,6 +97,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             config.set('Database', 'DB_Service', self.dbservice)
             config.set('Database', 'DB_Username', self.dbuser)
             config.set('Database', 'DB_Password', self.dbpassword)
+            config.set('Database', 'DB_Plugin_Name', self.iplugin_name)
 
             self.metadatadbconnection = self.get_connection_string()
             config.set('Database', 'Metadata_db_connection', self.metadatadbconnection)
@@ -124,6 +125,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             self.dbservice = config.get('Database', 'DB_Service', 0)
             self.dbuser = config.get('Database', 'DB_Username', 0)
             self.dbpassword = config.get('Database', 'DB_Password', 0)
+            self.iplugin_name = config.get('Database', 'DB_Plugin_Name', 0)
             self.metadatadbconnection = config.get('Database', 'Metadata_db_connection', 0)
             self.print_details_as_logs()
             self.logger.debug('Database details loaded successfully from config file!')

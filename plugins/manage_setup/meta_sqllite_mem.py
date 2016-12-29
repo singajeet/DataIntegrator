@@ -11,7 +11,7 @@ import scripts.core.manage_setup.iplugins as plugintypes
 class SqlLiteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of SqlLite Database
     """
-    source_plugin_name = 'SqlLiteMetadataDatabase'
+    iplugin_name = 'SqlLiteMetadataDatabasePlugin'
 
     def __init__(self):
         plugintypes.IMetadataDatabasePlugin.__init__(self)

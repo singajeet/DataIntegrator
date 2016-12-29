@@ -17,6 +17,7 @@ class IMetadataDatabasePlugin(IPlugin):
     def __init__(self):
         pass
 
+    iplugin_name = None
     logger = logging.getLogger('{}.IMetadataDatabasePlugin'.format(__package__))
     dbname = None
     dbtype = -1
