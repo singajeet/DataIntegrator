@@ -36,11 +36,14 @@ class SetupManager:
         self.plugin_manager.loadPlugins()
 
     def list(self):
+        """Provides the list of all installed plugins that can be configured with Data Integrator
+        """
         for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
-            self.logger.debug('"{}"" of type "{}" found under "MetaDBPlugins" category'.format(plugin.plugin_object.source_plugin_name, plugin.plugin_object.dbtype))
-            yield plugin.plugin_object.source_plugin_name
+            self.logger.debug('"{}" found under "MetaDBPlugins" category'.format(
+                plugin.plugin_object.iplugin_name))
+            yield plugin.plugin_object.iplugin_name
 
-    def install(self):
+    def install(self, db_plugin_name):
         """This function should be used to setup the Data Integrator on the current system
 
         .. warning::
@@ -50,28 +53,40 @@ class SetupManager:
         self.logger.info('Initiating the installation process for the Data Integrator')
         self.logger.info('Getting ready to ask setup questions')
 
-        self.dbtype = int(prompt('Database type[0=Oracle, 1=Cx_Oracle, 2=Sqllite_Mem, 3=Sqllite_file]: '))
+        # self.dbtype = int(prompt('Database type[0=Oracle, 1=Cx_Oracle, 2=Sqllite_Mem, 3=Sqllite_file]: '))
 
         for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
-            if plugin.plugin_object.dbtype == IMetadataDatabasePlugin.DBTYPE_ORACLE:
+            if plugin.plugin_object.iplugin_name == db_plugin_name:
+                self.logger.debug('"{}" found in the installed plugins and will be configured now'.format(plugin.plugin_object.iplugin_name))
                 self.metadata_db = plugin.plugin_object
                 self.metadata_db.prompt_details()
                 self.metadata_db.save_details_to_config(self.config)
 
-        answer = confirm('Want to test the saved database settings(y/n): ')
-        if answer == 'y':
-            self.logger.debug('Want to test db settings: User selection => %s'.format(answer))
-            engine = self.metadata_db.create_db_engine(self.config)
-            self.metadata_db.test_db_connection(engine)
+                answer = confirm('Want to test the saved database settings(y/n): ')
+                if answer:
+                    self.logger.debug('Testing connectivity of the newly configured database')
+                    engine = self.metadata_db.create_db_engine(self.config)
+                    self.metadata_db.test_db_connection(engine)
 
     def test_database(self):
+        """Function to test the database connectivity currently configured for Data Integrator
+        """
+        plugin_found = False
         for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
-            self.logger.debug('"{}" of type "{}" found and will be tested if configured in this system'.format(plugin.plugin_object.source_plugin_name, plugin.plugin_object.dbtype))
-            if int(plugin.plugin_object.dbtype) == int(self.config.get('Database', 'DB_Type', 0)):
-                self.logger.debug('"{}" of type "{}" is configured and will be tested now'.format(plugin.plugin_object.source_plugin_name, plugin.plugin_object.dbtype))
+            self.logger.debug('"{}" found and will be tested if configured in this system'.format(
+                plugin.plugin_object.iplugin_name))
+            if plugin.plugin_object.iplugin_name == self.config.get('Database', 'DB_Plugin_Name', 0):
+                self.logger.debug('"{}" is configured and will be tested now'.format(
+                    plugin.plugin_object.iplugin_name))
+                plugin_found = True
                 self.metadata_db = plugin.plugin_object
                 engine = self.metadata_db.create_db_engine(self.config)
-                self.metadata_db.test_db_connection(engine)
+                return self.metadata_db.test_db_connection(engine)
+
+        if not plugin_found:
+            self.logger.warning('No meta database is configured. Please configure an db using "install" command')
+            print('WARNING: No database is configured. Use "install" command to configure it else DI will not work')
+            return False
 
 
 if __name__ == '__main__':
