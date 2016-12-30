@@ -1,0 +1,9 @@
+[Core]
+Name = SqliteMemMetadataDatabase
+Module = meta_sqlite_mem
+
+[Documentation]
+Description = Provides functionaly to store metadata in Sqlite Memory database
+Author = Ajeet Singh
+Version = 0.1
+Website = None

@@ -143,8 +143,8 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """
         try:
             self.load_details_from_config(config)
-            self.logger.debug('Creating db engine for database: "' + self.dbname + '"')
-            self.logger.debug('Using DB connection uri: ' + self.metadatadbconnection)
+            self.logger.debug('Creating db engine for database: "{}"'.format(self.dbname))
+            self.logger.debug('Using DB connection uri: {}'.format(self.metadatadbconnection))
 
             self.dbengine = Database()
             self.dbengine.bind('oracle', self.metadatadbconnection)

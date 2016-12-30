@@ -8,7 +8,6 @@
 from __future__ import unicode_literals
 import logging
 from config.config_manager import ConfigManager
-from prompt_toolkit import prompt
 from prompt_toolkit.shortcuts import confirm
 from yapsy.PluginManager import PluginManager
 from .iplugins import IMetadataDatabasePlugin
@@ -52,8 +51,6 @@ class SetupManager:
         """
         self.logger.info('Initiating the installation process for the Data Integrator')
         self.logger.info('Getting ready to ask setup questions')
-
-        # self.dbtype = int(prompt('Database type[0=Oracle, 1=Cx_Oracle, 2=Sqllite_Mem, 3=Sqllite_file]: '))
 
         for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
             if plugin.plugin_object.iplugin_name == db_plugin_name:

@@ -50,6 +50,6 @@ class IMetadataDatabasePlugin(IPlugin):
     """
     DBTYPE_ORACLE = 0
     DBTYPE_CX_ORACLE = 1
-    DBTYPE_SQLLITE_MEM = 2
-    DBTYPE_SQLLITE_FILE = 3
+    DBTYPE_SQLITE_MEM = 2
+    DBTYPE_SQLITE_FILE = 3
     DBTYPE_MSSQL = 4
