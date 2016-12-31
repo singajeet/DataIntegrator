@@ -1,4 +1,4 @@
-Documentation for the Core Module
+Documentation for the Core package
 *****************************************
 
 .. automodule:: scripts.core

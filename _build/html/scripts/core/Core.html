@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Documentation for the Core Module &#8212; Data Integrator 0.1 documentation</title>
+    <title>Documentation for the Core package &#8212; Data Integrator 0.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Data Integrator 0.1 documentation" href="../../index.html" />
-    <link rel="prev" title="Welcome to Data Integrator’s documentation!" href="../../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -42,85 +41,7 @@
           <div class="body" role="main">
             
   <div class="section" id="module-scripts.core">
-<span id="documentation-for-the-core-module"></span><h1>Documentation for the Core Module<a class="headerlink" href="#module-scripts.core" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="usage-of-the-logger-module">
-<h2>Usage of the logger Module<a class="headerlink" href="#usage-of-the-logger-module" title="Permalink to this headline">¶</a></h2>
-<p>Below document provides help on how to use logger module</p>
-<span class="target" id="module-scripts.core.logger"></span><span class="target" id="module-scripts.core.logger.py"></span><dl class="class">
-<dt id="scripts.core.logger.Logger">
-<em class="property">class </em><code class="descclassname">scripts.core.logger.</code><code class="descname">Logger</code><a class="headerlink" href="#scripts.core.logger.Logger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logger class will be used system wide to log information at common place</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Internally this class uses <code class="xref py py-mod docutils literal"><span class="pre">logging</span></code> module and the <code class="xref py py-class docutils literal"><span class="pre">logging.fileConfig</span></code> class,
-so any attribute of the logger package can be accessed using
-<strong>(Logger class object).logger.&lt;logging package attribute name&gt;</strong></p>
-</div>
-</dd></dl>
-
-</div>
-<div class="section" id="usage-of-the-config-manager-module">
-<h2>Usage of the config_manager Module<a class="headerlink" href="#usage-of-the-config-manager-module" title="Permalink to this headline">¶</a></h2>
-<p>Below document provides help on how to use config_manager module</p>
-<span class="target" id="module-scripts.core.config_manager"></span><span class="target" id="module-scripts.core.config_manager.py"></span><dl class="class">
-<dt id="scripts.core.config_manager.ConfigManager">
-<em class="property">class </em><code class="descclassname">scripts.core.config_manager.</code><code class="descname">ConfigManager</code><a class="headerlink" href="#scripts.core.config_manager.ConfigManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Config Manager class will be used to load and store configuration system wide</p>
-<dl class="method">
-<dt id="scripts.core.config_manager.ConfigManager.add_section">
-<code class="descname">add_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.config_manager.ConfigManager.add_section" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new section provided as argument in the config file</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>section (str):  Name of the new section that needs to be added</dd>
-<dt>Returns:</dt>
-<dd>None.</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="scripts.core.config_manager.ConfigManager.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>section</em>, <em>key</em>, <em>is_raw</em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.config_manager.ConfigManager.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get function will read &amp; return the value of key provided as args</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>section (str):  Name of the section defined in config file
-key (str):  Name of the key defined under the section
-is_raw (number):  Pass value 1 if the value for key needs to be read as raw from config file</dd>
-<dt>Returns:</dt>
-<dd>str.  The value for the key provided in the arguments</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="scripts.core.config_manager.ConfigManager.remove_section">
-<code class="descname">remove_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.config_manager.ConfigManager.remove_section" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove a section from the config file.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>section(str): Name of the section that needs to be removed from config file</dd>
-<dt>Returns:</dt>
-<dd>bool. Returns <cite>True</cite> if section is removed else returns <cite>False</cite></dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="scripts.core.config_manager.ConfigManager.set">
-<code class="descname">set</code><span class="sig-paren">(</span><em>section</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.config_manager.ConfigManager.set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the key-value pair in the config file under the section provided as args</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>section (str):  Name of the section under which key-value pair needs to be stored
-key (str):  The unique identifier to store the value under an section
-value (str):  The value that needs to be stored for an unique combination of section &amp; key</dd>
-<dt>Returns:</dt>
-<dd>None.</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
+<span id="documentation-for-the-core-package"></span><h1>Documentation for the Core package<a class="headerlink" href="#module-scripts.core" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -128,20 +49,10 @@ value (str):  The value that needs to be stored for an unique combination of sec
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Documentation for the Core Module</a><ul>
-<li><a class="reference internal" href="#usage-of-the-logger-module">Usage of the logger Module</a></li>
-<li><a class="reference internal" href="#usage-of-the-config-manager-module">Usage of the config_manager Module</a></li>
-</ul>
-</li>
-</ul>
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../../index.html" title="previous chapter">Welcome to Data Integrator&#8217;s documentation!</a></li>
   </ul></li>
 </ul>
 </div>

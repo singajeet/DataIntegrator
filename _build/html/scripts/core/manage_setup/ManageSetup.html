@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation for the manage_setup package &#8212; Data Integrator 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Data Integrator 0.1 documentation" href="../../../index.html" />
+    <link rel="prev" title="Welcome to Data Integrator’s documentation!" href="../../../index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-scripts.core.manage_setup">
+<span id="documentation-for-the-manage-setup-package"></span><h1>Documentation for the manage_setup package<a class="headerlink" href="#module-scripts.core.manage_setup" title="Permalink to this headline">¶</a></h1>
+<p>Manage Project documentation guide</p>
+<div class="section" id="usage-of-the-install-module">
+<h2>Usage of the Install Module<a class="headerlink" href="#usage-of-the-install-module" title="Permalink to this headline">¶</a></h2>
+<p>Below document provides help on how to use Install module</p>
+<span class="target" id="module-scripts.core.manage_setup.install"></span><span class="target" id="module-scripts.core.manage_setup.install.py"></span><dl class="class">
+<dt id="scripts.core.manage_setup.install.SetupManager">
+<em class="property">class </em><code class="descclassname">scripts.core.manage_setup.install.</code><code class="descname">SetupManager</code><a class="headerlink" href="#scripts.core.manage_setup.install.SetupManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup Manager class is used to create and manage Data Integrator projects</p>
+<dl class="method">
+<dt id="scripts.core.manage_setup.install.SetupManager.install">
+<code class="descname">install</code><span class="sig-paren">(</span><em>db_plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.manage_setup.install.SetupManager.install" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function should be used to setup the Data Integrator on the current system</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The current implementation will not check for existing installation and will override the
+exisiting settings if any exists</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="scripts.core.manage_setup.install.SetupManager.list">
+<code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.manage_setup.install.SetupManager.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the list of all installed plugins that can be configured with Data Integrator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="scripts.core.manage_setup.install.SetupManager.test_database">
+<code class="descname">test_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.core.manage_setup.install.SetupManager.test_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to test the database connectivity currently configured for Data Integrator</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="usage-of-the-iplugins-module">
+<h2>Usage of the IPlugins Module<a class="headerlink" href="#usage-of-the-iplugins-module" title="Permalink to this headline">¶</a></h2>
+<p>Below document provides help on how to use IPlugins module to develop plugins</p>
+<span class="target" id="module-scripts.core.manage_setup.iplugins"></span><span class="target" id="module-scripts.core.manage_setup.iplugins.py"></span><dl class="class">
+<dt id="scripts.core.manage_setup.iplugins.IMetadataDatabasePlugin">
+<em class="property">class </em><code class="descclassname">scripts.core.manage_setup.iplugins.</code><code class="descname">IMetadataDatabasePlugin</code><a class="headerlink" href="#scripts.core.manage_setup.iplugins.IMetadataDatabasePlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the Metadata Database details</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentation for the manage_setup package</a><ul>
+<li><a class="reference internal" href="#usage-of-the-install-module">Usage of the Install Module</a></li>
+<li><a class="reference internal" href="#usage-of-the-iplugins-module">Usage of the IPlugins Module</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../../../index.html" title="previous chapter">Welcome to Data Integrator&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/scripts/core/manage_setup/ManageSetup.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Ajeet Singh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../../../_sources/scripts/core/manage_setup/ManageSetup.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

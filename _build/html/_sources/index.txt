@@ -11,8 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 6
 
+   scripts/core/manage_setup/ManageSetup
+   config/Config
    scripts/core/Core
-   scripts/core/manage_setup/ManageProject
+
 
 Indices and tables
 ==================
