@@ -9,7 +9,7 @@ from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
 from pony.orm import Database, db_session
-import scripts.core.manage_setup.iplugins as plugintypes
+import scripts.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
 
 
 class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):

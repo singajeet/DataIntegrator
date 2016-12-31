@@ -20,7 +20,7 @@ class IMetadataDatabasePlugin(IPlugin):
     iplugin_name = None
     logger = logging.getLogger('{}.IMetadataDatabasePlugin'.format(__package__))
     dbname = None
-    dbtype = -1
+    dbtype = None
 
     def prompt_details(self):
         pass
@@ -48,8 +48,8 @@ class IMetadataDatabasePlugin(IPlugin):
 
     """Below are the type supported by DI as of now
     """
-    DBTYPE_ORACLE = 0
-    DBTYPE_CX_ORACLE = 1
-    DBTYPE_SQLITE_MEM = 2
-    DBTYPE_SQLITE_FILE = 3
-    DBTYPE_MSSQL = 4
+    DBTYPE_ORACLE = 'DBTYPE_ORACLE'
+    DBTYPE_CX_ORACLE = 'DBTYPE_CX_ORACLE'
+    DBTYPE_SQLITE_MEM = 'DBTYPE_SQLITE_MEM'
+    DBTYPE_SQLITE_FILE = 'DBTYPE_SQLITE_FILE'
+    DBTYPE_MSSQL = 'DBTYPE_MSSQL'

@@ -10,7 +10,7 @@ import logging
 from config.config_manager import ConfigManager
 from prompt_toolkit.shortcuts import confirm
 from yapsy.PluginManager import PluginManager
-from .iplugins import IMetadataDatabasePlugin
+from .iplugins.meta_database_interfaces import IMetadataDatabasePlugin
 
 
 class SetupManager:
@@ -36,6 +36,9 @@ class SetupManager:
 
     def list(self):
         """Provides the list of all installed plugins that can be configured with Data Integrator
+
+        Yields:
+            str     Plugin Name
         """
         for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
             self.logger.debug('"{}" found under "MetaDBPlugins" category'.format(
@@ -44,6 +47,9 @@ class SetupManager:
 
     def install(self, db_plugin_name):
         """This function should be used to setup the Data Integrator on the current system
+
+        Args:
+            db_plugin_name (str):   The plugin name that will be used to install database
 
         .. warning::
                 The current implementation will not check for existing installation and will override the
