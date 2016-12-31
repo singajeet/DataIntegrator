@@ -280,11 +280,18 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/core/source/file_source.py",
+			"file": "scripts/core/data_object/iplugins/file_type_interfaces.py",
 			"settings":
 			{
-				"buffer_size": 1462,
-				"encoding": "UTF-8",
+				"buffer_size": 1207,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "plugins/data_object/file_type/file.py",
+			"settings":
+			{
+				"buffer_size": 2797,
 				"line_ending": "Windows"
 			}
 		}
@@ -356,26 +363,36 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object/file_type",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/iplugins",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_oracle_db.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/install.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_interfaces.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/file_type.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/yapsy/PluginManager.py",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/yapsy/IPlugin.py",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/sublimelinter.py",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/commands.py",
+		"/C/Program Files/Sublime Text 3/sublime_plugin.py",
+		"/C/Program Files/Sublime Text 3/sublime.py",
+		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interfaces.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/install.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_interfaces.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqlite_mem.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_oracle_db.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/csv_file_source.py",
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/log/rabbit@asingh-HP.log",
@@ -500,45 +517,64 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/core/source/file_source.py",
+					"file": "scripts/core/data_object/iplugins/file_type_interfaces.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1462,
+						"buffer_size": 1207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								490,
-								490
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 135.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "plugins/data_object/file_type/file.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -632,7 +668,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 213.0,
+	"side_bar_width": 312.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

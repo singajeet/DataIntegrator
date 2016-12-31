@@ -1,0 +1,9 @@
+[Core]
+Name = CSVFilePlugin
+Module = csv_file
+
+[Documentation]
+Description = Provides the wrapper over the built-in csv() function
+Author = Ajeet Singh
+Version = 0.1
+Website = None

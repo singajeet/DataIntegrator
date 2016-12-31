@@ -19,20 +19,24 @@ class SetupManager:
     """
 
     logger = logging.getLogger('{}.SetupManager'.format(__package__))
+    _config = None
+    _plugin_manager = None
 
     def __init__(self):
         """Initializer of Project Manager
 
                 Project **logging** & **configuration** will be initialized in this class
         """
-        # self.logger.setLevel(level=logging.DEBUG)
+        # self.logging.setLevel(level=logging.DEBUG)
         self.logger.info('Trying to load the configuration file...')
-        self.config = ConfigManager()
-        self.logger.info('Config Manager has been initiated using config file: ' + self.config.config_file_name)
-        self.plugin_manager = PluginManager(categories_filter={"MetaDBPlugins": IMetadataDatabasePlugin})
-        self.plugin_manager.setPluginPlaces([self.config.get('Plugins', 'setup_manager_plugins', 0)])
-        self.plugin_manager.locatePlugins()
-        self.plugin_manager.loadPlugins()
+        self._config = ConfigManager()
+        self.logger.info('Config Manager has been initiated using config file: {}'
+                         .format(
+                                    self._config.config_file_name))
+        self._plugin_manager = PluginManager(categories_filter={"MetaDBPlugins": IMetadataDatabasePlugin})
+        self._plugin_manager.setPluginPlaces([self._config.get('Plugins', 'setup_manager_plugins', 0)])
+        self._plugin_manager.locatePlugins()
+        self._plugin_manager.loadPlugins()
 
     def list(self):
         """Provides the list of all installed plugins that can be configured with Data Integrator
@@ -40,7 +44,7 @@ class SetupManager:
         Yields:
             str     Plugin Name
         """
-        for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
+        for plugin in self._plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
             self.logger.debug('"{}" found under "MetaDBPlugins" category'.format(
                 plugin.plugin_object.iplugin_name))
             yield plugin.plugin_object.iplugin_name
@@ -53,38 +57,39 @@ class SetupManager:
 
         .. warning::
                 The current implementation will not check for existing installation and will override the
-                exisiting settings if any exists
+                existing settings if any exists
         """
         self.logger.info('Initiating the installation process for the Data Integrator')
         self.logger.info('Getting ready to ask setup questions')
 
-        for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
+        for plugin in self._plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
             if plugin.plugin_object.iplugin_name == db_plugin_name:
-                self.logger.debug('"{}" found in the installed plugins and will be configured now'.format(plugin.plugin_object.iplugin_name))
-                self.metadata_db = plugin.plugin_object
-                self.metadata_db.prompt_details()
-                self.metadata_db.save_details_to_config(self.config)
+                self.logger.debug('"{}" found in the installed plugins and will be configured now'
+                                  .format(plugin.plugin_object.iplugin_name))
+                metadata_db = plugin.plugin_object
+                metadata_db.prompt_details()
+                metadata_db.save_details_to_config(self._config)
 
                 answer = confirm('Want to test the saved database settings(y/n): ')
                 if answer:
                     self.logger.debug('Testing connectivity of the newly configured database')
-                    engine = self.metadata_db.create_db_engine(self.config)
-                    self.metadata_db.test_db_connection(engine)
+                    engine = metadata_db.create_db_engine(self._config)
+                    metadata_db.test_db_connection(engine)
 
     def test_database(self):
         """Function to test the database connectivity currently configured for Data Integrator
         """
         plugin_found = False
-        for plugin in self.plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
+        for plugin in self._plugin_manager.getPluginsOfCategory('MetaDBPlugins'):
             self.logger.debug('"{}" found and will be tested if configured in this system'.format(
                 plugin.plugin_object.iplugin_name))
-            if plugin.plugin_object.iplugin_name == self.config.get('Database', 'DB_Plugin_Name', 0):
+            if plugin.plugin_object.iplugin_name == self._config.get('Database', 'DB_Plugin_Name', 0):
                 self.logger.debug('"{}" is configured and will be tested now'.format(
                     plugin.plugin_object.iplugin_name))
                 plugin_found = True
-                self.metadata_db = plugin.plugin_object
-                engine = self.metadata_db.create_db_engine(self.config)
-                return self.metadata_db.test_db_connection(engine)
+                metadata_db = plugin.plugin_object
+                engine = metadata_db.create_db_engine(self._config)
+                return metadata_db.test_db_connection(engine)
 
         if not plugin_found:
             self.logger.warning('No meta database is configured. Please configure an db using "install" command')

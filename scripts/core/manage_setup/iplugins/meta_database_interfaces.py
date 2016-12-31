@@ -6,7 +6,6 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from yapsy.IPlugin import IPlugin
-import logging
 
 
 class IMetadataDatabasePlugin(IPlugin):
@@ -15,12 +14,56 @@ class IMetadataDatabasePlugin(IPlugin):
     """
 
     def __init__(self):
-        pass
+        super(IMetadataDatabasePlugin, self).__init__()
 
-    iplugin_name = None
-    logger = logging.getLogger('{}.IMetadataDatabasePlugin'.format(__package__))
-    dbname = None
-    dbtype = None
+    _iplugin_name = None
+    _dbname = None
+    _dbtype = None
+    _metadatadbconnection = None
+
+    @property
+    def iplugin_name(self):
+        return self._iplugin_name
+
+    @iplugin_name.setter
+    def iplugin_name(self, value):
+        self._iplugin_name = value
+
+    @iplugin_name.deleter
+    def iplugin_name(self):
+        del self._iplugin_name
+
+    @property
+    def dbname(self):
+        return self._dbname
+
+    @dbname.setter
+    def dbname(self, value):
+        self._dbname = value
+
+    @dbname.deleter
+    def dbname(self):
+        del self._dbname
+
+    @property
+    def dbtype(self):
+        return self._dbtype
+
+    @dbtype.setter
+    def dbtype(self, value):
+        self._dbtype = value
+
+    @dbtype.deleter
+    def dbtype(self):
+        del self._dbtype
+
+    @property
+    def metadatadbconnection(self):
+        return self._metadatadbconnection
+
+    @metadatadbconnection.setter
+    def _metadatadbconnection(self, value):
+        self._metadatadbconnection = value
 
     def prompt_details(self):
         pass

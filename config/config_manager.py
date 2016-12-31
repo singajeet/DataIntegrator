@@ -15,6 +15,16 @@ class ConfigManager:
 
     """
 
+    _config = None
+
+    @property
+    def config(self):
+        return self._config
+
+    @config.setter
+    def config(self, value):
+        self._config = value
+
     def __init__(self):
         """Config Manager will be initialized here
         """

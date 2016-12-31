@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation for the config_manager Module &#8212; Data Integrator 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Data Integrator 0.1 documentation" href="../index.html" />
+    <link rel="next" title="Documentation for the Core package" href="../scripts/core/core.html" />
+    <link rel="prev" title="Documentation for the data_object package" href="../scripts/core/data_object/file_type.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-for-the-config-manager-module">
+<h1>Documentation for the config_manager Module<a class="headerlink" href="#documentation-for-the-config-manager-module" title="Permalink to this headline">¶</a></h1>
+<p>Below document provides help on how to use config_manager module</p>
+<span class="target" id="module-config.config_manager"></span><span class="target" id="module-scripts.core.config_manager.py"></span><dl class="class">
+<dt id="config.config_manager.ConfigManager">
+<em class="property">class </em><code class="descclassname">config.config_manager.</code><code class="descname">ConfigManager</code><a class="headerlink" href="#config.config_manager.ConfigManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Config Manager class will be used to load and store configuration system wide</p>
+<dl class="method">
+<dt id="config.config_manager.ConfigManager.add_section">
+<code class="descname">add_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#config.config_manager.ConfigManager.add_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new section provided as argument in the config file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>section (str):  Name of the new section that needs to be added</dd>
+<dt>Returns:</dt>
+<dd>None.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="config.config_manager.ConfigManager.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>section</em>, <em>key</em>, <em>is_raw</em><span class="sig-paren">)</span><a class="headerlink" href="#config.config_manager.ConfigManager.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get function will read &amp; return the value of key provided as args</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>section (str):  Name of the section defined in config file
+key (str):  Name of the key defined under the section
+is_raw (number):  Pass value 1 if the value for key needs to be read as raw from config file</dd>
+<dt>Returns:</dt>
+<dd>str.  The value for the key provided in the arguments</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="config.config_manager.ConfigManager.remove_section">
+<code class="descname">remove_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#config.config_manager.ConfigManager.remove_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a section from the config file.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>section(str): Name of the section that needs to be removed from config file</dd>
+<dt>Returns:</dt>
+<dd>bool. Returns <cite>True</cite> if section is removed else returns <cite>False</cite></dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="config.config_manager.ConfigManager.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.config_manager.ConfigManager.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the configuration to the file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="config.config_manager.ConfigManager.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>section</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#config.config_manager.ConfigManager.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the key-value pair in the config file under the section provided as args</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>section (str):  Name of the section under which key-value pair needs to be stored
+key (str):  The unique identifier to store the value under an section
+value (str):  The value that needs to be stored for an unique combination of section &amp; key</dd>
+<dt>Returns:</dt>
+<dd>None.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../scripts/core/data_object/file_type.html" title="previous chapter">Documentation for the data_object package</a></li>
+      <li>Next: <a href="../scripts/core/core.html" title="next chapter">Documentation for the Core package</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/config/config_manager.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Ajeet Singh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/config/config_manager.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

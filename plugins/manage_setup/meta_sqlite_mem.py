@@ -14,18 +14,16 @@ from pony.orm import Database, db_session
 class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of SqlLite Database
     """
-    iplugin_name = 'SqliteMetadataDatabasePlugin'
+    _iplugin_name = 'SqliteMetadataDatabasePlugin'
     logger = logging.getLogger('{}.SqliteMemMetadataDatabasePlugin'.format(__package__))
+    _dbengine = None
 
     def __init__(self):
         plugintypes.IMetadataDatabasePlugin.__init__(self)
-        self.dbtype = self.DBTYPE_SQLITE_MEM
+        self._dbtype = self.DBTYPE_SQLITE_MEM
 
     def prompt_details(self):
         """An empty implementation of this function as Sqlite Mem do not require any configuration strings
-
-        Args:
-            None
 
         Returns:
             None
@@ -37,9 +35,6 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     def get_connection_string(self):
         """This function will return the URI to connect with Sqlite Memory database
 
-        Args:
-            None
-
         Returns:
             str
         """
@@ -48,22 +43,20 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     def print_details_as_logs(self):
         """This function will just log the details of database
 
-        Args:
-            None
-
         Returns:
             None
         """
         self.logger.debug('Below are the database details...')
-        self.logger.debug('DB Name: {} | DB Type: {} | DB uri: {}'.format(self.dbname, self.dbtype, self.metadatadbconnection))
+        self.logger.debug('DB Name: {} | DB Type: {} | DB uri: {}'.format(
+                            self._dbname, self._dbtype, self._metadatadbconnection))
 
     def save_details_to_config(self, config):
         """This function will populate default db details for Sqlite in-memory db
         """
         self.logger.debug('No configuration details will be saved for Sqlite Memory Database in config file')
-        self.dbname = 'Sqlite In-Memory'
-        self.dbtype = self.DBTYPE_SQLITE_MEM
-        self.metadatadbconnection = ':memory:'
+        self._dbname = 'Sqlite In-Memory'
+        self._dbtype = self.DBTYPE_SQLITE_MEM
+        self._metadatadbconnection = ':memory:'
         self.print_details_as_logs()
 
     def load_details_from_config(self, config):
@@ -76,9 +69,9 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             None
         """
         self.logger.debug('Loading database details for Sqlite in-memory db')
-        self.dbname = 'Sqlite In-Memory'
-        self.dbtype = self.DBTYPE_SQLITE_MEM
-        self.metadatadbconnection = self.get_connection_string()
+        self._dbname = 'Sqlite In-Memory'
+        self._dbtype = self.DBTYPE_SQLITE_MEM
+        self._metadatadbconnection = self.get_connection_string()
         self.print_details_as_logs()
 
     def create_db_engine(self, config):
@@ -94,11 +87,11 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             self.logger.debug('Creating db engine for database: "{}"'.format(self.dbname))
             self.logger.debug('Using DB connection uri: {}'.format(self.metadatadbconnection))
 
-            self.dbengine = Database()
-            self.dbengine.bind('sqlite', self.metadatadbconnection)
+            self._dbengine = Database()
+            self._dbengine.bind('sqlite', self.metadatadbconnection)
 
             self.logger.debug('DB engine created successfully!')
-            return self.dbengine
+            return self._dbengine
         except Exception as ex:
             self.logger.error('Error while creating db engine: {}'.format(ex.message))
 
@@ -106,7 +99,7 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
         """Function to test db connection with Sqlite database. Returns `True` is success else `False`
 
         Args:
-            session (:mod:`PonyOrm`.:class:`Database`)
+            engine (:mod:`PonyOrm`.:class:`Database`)
 
         Returns:
             bool
@@ -129,7 +122,7 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
         """Function to close the database connection
 
         Args:
-            session (:mod:`Sqlalchemy`.:class:`session`)
+            engine (:mod:`PonyOrm`.:class:`session`)
 
         Returns:
             None
@@ -140,6 +133,3 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             self.logger.debug('DB connection/session closed successfully!')
         except Exception as ex:
             self.logger.error('Error while closing db connection/session: {}'.format(ex.message))
-
-
-

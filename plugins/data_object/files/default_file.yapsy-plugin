@@ -1,0 +1,9 @@
+[Core]
+Name = DefaultFilePlugin
+Module = default_file
+
+[Documentation]
+Description = Provides the wrapper over the built-in file open() function
+Author = Ajeet Singh
+Version = 0.1
+Website = None

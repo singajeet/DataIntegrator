@@ -16,17 +16,19 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of Oracle Database
     """
 
-    iplugin_name = 'OracleMetadataDatabasePlugin'
+    _iplugin_name = 'OracleMetadataDatabasePlugin'
     logger = logging.getLogger('{}.OracleMetadataDatabasePlugin'.format(__package__))
-    dbhost = None
-    dbport = None
-    dbservice = None
-    dbuser = None
-    dbpassword = None
+    _dbhost = None
+    _dbport = None
+    _dbservice = None
+    _dbuser = None
+    _dbpassword = None
+    _metadatadbconnection = None
+    _dbengine = None
 
     def __init__(self):
         plugintypes.IMetadataDatabasePlugin.__init__(self)
-        self.dbtype = self.DBTYPE_ORACLE
+        self._dbtype = self.DBTYPE_ORACLE
 
     def prompt_details(self):
         """This function will prompt for database details from user
@@ -39,12 +41,12 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """
         self.logger.debug('Prompting user for database details')
 
-        self.dbname = prompt('Database Name to be stored in config: ')
-        self.dbhost = prompt('Hostname: ')
-        self.dbport = prompt('Port: ')
-        self.dbservice = prompt('Service: ')
-        self.dbuser = prompt('Username: ')
-        self.dbpassword = prompt('Password: ', is_password=True)
+        self._dbname = prompt('Database Name to be stored in config: ')
+        self._dbhost = prompt('Hostname: ')
+        self._dbport = prompt('Port: ')
+        self._dbservice = prompt('Service: ')
+        self._dbuser = prompt('Username: ')
+        self._dbpassword = prompt('Password: ', is_password=True)
         self.print_details_as_logs()
         self.logger.debug('All details collected successfully from user')
 
@@ -57,24 +59,21 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         Returns:
             str.
         """
-        return '{}/{}@{}:{}/{}'.format(self.dbuser, self.dbpassword, self.dbhost, self.dbport, self.dbservice)
+        return '{}/{}@{}:{}/{}'.format(self._dbuser, self._dbpassword, self._dbhost, self._dbport, self._dbservice)
 
     def print_details_as_logs(self):
         """This function will just log the details of database
-
-        Args:
-            None
 
         Returns:
             None
         """
         self.logger.debug('Below are the database detalis...')
         self.logger.debug('DB Name: {} | DB Type: {} | DB Host: {} | DB Port: {}'.format(
-            self.dbname,
-            self.dbtype,
-            self.dbhost,
-            self.dbport))
-        self.logger.debug('DB Service: {} | DB Username: {}'.format(self.dbservice, self.dbuser))
+            self._dbname,
+            self._dbtype,
+            self._dbhost,
+            self._dbport))
+        self.logger.debug('DB Service: {} | DB Username: {}'.format(self._dbservice, self._dbuser))
 
     def save_details_to_config(self, config):
         """This function will save the db details to config object passed as argument
@@ -90,17 +89,17 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             if not config.config.has_section('Database'):
                 config.add_section('Database')
 
-            config.set('Database', 'DB_Name', self.dbname)
-            config.set('Database', 'DB_Type', self.dbtype)
-            config.set('Database', 'DB_Host', self.dbhost)
-            config.set('Database', 'DB_Port', self.dbport)
-            config.set('Database', 'DB_Service', self.dbservice)
-            config.set('Database', 'DB_Username', self.dbuser)
-            config.set('Database', 'DB_Password', self.dbpassword)
-            config.set('Database', 'DB_Plugin_Name', self.iplugin_name)
+            config.set('Database', 'DB_Name', self._dbname)
+            config.set('Database', 'DB_Type', self._dbtype)
+            config.set('Database', 'DB_Host', self._dbhost)
+            config.set('Database', 'DB_Port', self._dbport)
+            config.set('Database', 'DB_Service', self._dbservice)
+            config.set('Database', 'DB_Username', self._dbuser)
+            config.set('Database', 'DB_Password', self._dbpassword)
+            config.set('Database', 'DB_Plugin_Name', self._iplugin_name)
 
-            self.metadatadbconnection = self.get_connection_string()
-            config.set('Database', 'Metadata_db_connection', self.metadatadbconnection)
+            self._metadatadbconnection = self.get_connection_string()
+            config.set('Database', 'Metadata_db_connection', self._metadatadbconnection)
             config.save()
             self.print_details_as_logs()
             self.logger.debug('Database details stored to config file successfully!')
@@ -118,15 +117,15 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """
         try:
             self.logger.debug('Trying to load database details from config file')
-            self.dbname = config.get('Database', 'DB_Name', 0)
-            self.dbtype = config.get('Database', 'DB_Type', 0)
-            self.dbhost = config.get('Database', 'DB_Host', 0)
-            self.dbport = config.get('Database', 'DB_Port', 0)
-            self.dbservice = config.get('Database', 'DB_Service', 0)
-            self.dbuser = config.get('Database', 'DB_Username', 0)
-            self.dbpassword = config.get('Database', 'DB_Password', 0)
-            self.iplugin_name = config.get('Database', 'DB_Plugin_Name', 0)
-            self.metadatadbconnection = config.get('Database', 'Metadata_db_connection', 0)
+            self._dbname = config.get('Database', 'DB_Name', 0)
+            self._dbtype = config.get('Database', 'DB_Type', 0)
+            self._dbhost = config.get('Database', 'DB_Host', 0)
+            self._dbport = config.get('Database', 'DB_Port', 0)
+            self._dbservice = config.get('Database', 'DB_Service', 0)
+            self._dbuser = config.get('Database', 'DB_Username', 0)
+            self._dbpassword = config.get('Database', 'DB_Password', 0)
+            self._iplugin_name = config.get('Database', 'DB_Plugin_Name', 0)
+            self._metadatadbconnection = config.get('Database', 'Metadata_db_connection', 0)
             self.print_details_as_logs()
             self.logger.debug('Database details loaded successfully from config file!')
         except Exception as ex:
@@ -143,14 +142,14 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """
         try:
             self.load_details_from_config(config)
-            self.logger.debug('Creating db engine for database: "{}"'.format(self.dbname))
-            self.logger.debug('Using DB connection uri: {}'.format(self.metadatadbconnection))
+            self.logger.debug('Creating db engine for database: "{}"'.format(self._dbname))
+            self.logger.debug('Using DB connection uri: {}'.format(self._metadatadbconnection))
 
-            self.dbengine = Database()
-            self.dbengine.bind('oracle', self.metadatadbconnection)
+            self._dbengine = Database()
+            self._dbengine.bind('oracle', self._metadatadbconnection)
 
             self.logger.debug('DB engine created successfully!')
-            return self.dbengine
+            return self._dbengine
         except Exception as ex:
             self.logger.error('Error while creating db engine: {}'.format(ex.message))
 
@@ -158,7 +157,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """Function to test db connection with Oracle database. Returns `True` is success else `False`
 
         Args:
-            session (:mod:`PonyOrm`.:class:`Database`)
+            engine (:mod:`PonyOrm`.:class:`Database`)
 
         Returns:
             bool
@@ -181,7 +180,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """Function to close the database connection
 
         Args:
-            session (:mod:`Sqlalchemy`.:class:`session`)
+            engine (:mod:`PonyOrm`.:class:`Database`)
 
         Returns:
             None

@@ -11,32 +11,40 @@ from .source_abstract import Source
 
 class FileSource(Source):
     """An abstract class for the File Source type.
+        This class accepts an instance of class:
+        :class:`scripts.core.data_object.iplugins.file_type_interfaces.IFile`
         All file source should be inherited from this class
     """
-    file_source_type = None
-    file_name = None
-    file_ext = None
-    file_path = None
+    _source_type = None
+    _file = None
 
+    @property
+    def source_type(self):
+        return self._source_type
 
+    @source_type.setter
+    def source_type(self, value):
+        self._source_type = value
 
-    """File source types supported by current implementation of Data Integrator
-    """
-    CSV_FILE_SOURCE_TYPE = 'CSV_FILE_SOURCE_TYPE'
-    DELIMITED_FILE_SOURCE_TYPE = 'DELIMITED_FILE_SOURCE_TYPE'
-    ZIP_FILE_SOURCE_TYPE = 'ZIP_FILE_SOURCE_TYPE'
-    XLS_FILE_SOURCE_TYPE = 'XLS_FILE_SOURCE_TYPE'
-    XLSX_FILE_SOURCE_TYPE = 'XLSX_FILE_SOURCE_TYPE'
-    JSON_FILE_SOURCE_TYPE = 'JSON_FILE_SOURCE_TYPE'
-    XML_FILE_SOURCE_TYPE = 'XML_FILE_SOURCE_TYPE'
-    HTML_FILE_SOURCE_TYPE = 'HTML_FILE_SOURCE_TYPE'
+    @property
+    def file(self):
+        return self._file
 
-    def __init__(self, source_name, file_name, file_path):
-        self.source_name = source_name
-        self.file_path = file_path
-        self.file_name = file_name
-        self.file_ext = (file_name.split('.')).pop()  # Get the file extension from the filename
-        self.source_type = self.FILE_SOURCE_TYPE
+    @file.setter
+    def file(self, value):
+        self._file = value
+
+    def __init__(self, source_name, pfile):
+        """File Source class constructor to create an instance
+
+        Args:
+            source_name (str): Name of the file source
+            pfile (scripts.core.data_object.iplugins.file_type_interfaces.IFile): An instance of the File class
+
+        :type pfile: scripts.core.data_object.iplugins.files.IFile
+        """
+        self._source_name = source_name
+        self._file = pfile
 
     def read(self):
         pass
@@ -49,5 +57,3 @@ class FileSource(Source):
 
     def dump_data(self):
         pass
-
-
