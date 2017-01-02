@@ -15,10 +15,12 @@ class DefaultFilePlugin(plugintypes.IFile):
     """
 
     logger = logging.getLogger('{}.DefaultFilePlugin'.format(__package__))
+    _handle = None
 
     def __init__(self):
         plugintypes.IFile.__init__(self)
-        self._iplugin_name = self.DEFAULT_FILE
+        self._iplugin_name = 'DefaultFilePlugin'
+        self._file_type = self.DEFAULT_FILE
 
     def open(self, name, mode='r', buffering=-1, encoding=None, errors=None,
              newline=None, closefd=None, opener=None):

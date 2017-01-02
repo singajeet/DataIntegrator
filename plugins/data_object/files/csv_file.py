@@ -7,7 +7,7 @@
 """
 import scripts.core.data_object.iplugins.files as plugintypes
 import logging
-import csv
+import agate
 
 
 class CSVFilePlugin(plugintypes.IFile):
@@ -16,25 +16,31 @@ class CSVFilePlugin(plugintypes.IFile):
     """
 
     logger = logging.getLogger('{}.CSVFilePlugin'.format(__package__))
+    _kwds = None
+    _encoding = None
+    _header = False
+    columns = None
 
-    def __init__(self):
+    def __init__(self, file_name, **kwds):
         plugintypes.IFile.__init__(self)
-        self._iplugin_name = self.CSV_FILE
-
-    def open(self, name, mode='r', buffering=-1, encoding=None, errors=None,
-             newline=None, closefd=None, opener=None):
+        self._iplugin_name = 'CSVFilePlugin'
+        self._file_type = self.CSV_FILE
+        self._file_name = file_name
+        self._kwds = kwds
         try:
-            self._handle = open(name, mode, buffering, encoding, errors,
-                                newline, closefd, opener)
-            return self._handle
-        except IOError as ex:
-            self.logger.error('Can\'t open file in read/write mode: {}'.format(ex.message))
-            raise
-
-    def reader(self):
-        try:
-            csv_reader = csv.reader(self._handle, delimiter=',', quotechar='"')
-            return csv_reader
+            self._table = agate.Table.from_csv(self._file_name, delimiter=',', **kwds)
+            for column in self._table.column_names:
+                setattr(self.columns, column, self._table.columns[column])
         except Exception as ex:
-            self.logger.error('Can\'t open file in read/write mode: {}'.format(ex.message))
+            self.logger.error('Can\'t open csv file due to below error: {}'.format(ex.message))
             raise
+
+    def read_sample(self):
+        return self._table.limit(100)
+
+    def get_column_distinct_values(self, column_name):
+        self._table.columns[column_name].values_distinct()
+
+
+if __name__ == '__main__':
+    pass

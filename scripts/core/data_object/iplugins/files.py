@@ -12,10 +12,20 @@ class IFile(IPlugin):
     """IFile interface to be used for writing plugins
     """
     _iplugin_name = None
-    _handle = None
+    _table = None
+    _file_type = None
+    _file_name = None
 
     def __init__(self):
         IPlugin.__init__(self)
+
+    @property
+    def file_name(self):
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, value):
+        self._file_name = value
 
     @property
     def iplugin_name(self):
@@ -26,8 +36,8 @@ class IFile(IPlugin):
         self._iplugin_name = value
 
     @property
-    def handle(self):
-        return self._handle
+    def table(self):
+        return self._table
 
     """File source types supported by current implementation of Data Integrator
         """
