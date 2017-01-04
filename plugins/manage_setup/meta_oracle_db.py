@@ -8,7 +8,7 @@
 from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
-from pony.orm import Database, db_session
+from sqlalchemy import create_engine
 import scripts.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
 
 
@@ -59,7 +59,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         Returns:
             str.
         """
-        return '{}/{}@{}:{}/{}'.format(self._dbuser, self._dbpassword, self._dbhost, self._dbport, self._dbservice)
+        return 'oracle://{}:{}@{}:{}/{}'.format(self._dbuser, self._dbpassword, self._dbhost, self._dbport, self._dbservice)
 
     def print_details_as_logs(self):
         """This function will just log the details of database
@@ -138,15 +138,14 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             config (:mod:`ConfigParser`):  an instance of :mod:`ConfigParser`
 
         Returns:
-            :mod:`PonyOrm`.:class:`Database`
+            :mod:`SQLAlchemy`.:class:`Engine`
         """
         try:
             self.load_details_from_config(config)
             self.logger.debug('Creating db engine for database: "{}"'.format(self._dbname))
             self.logger.debug('Using DB connection uri: {}'.format(self._metadatadbconnection))
 
-            self._dbengine = Database()
-            self._dbengine.bind('oracle', self._metadatadbconnection)
+            self._dbengine = create_engine(self._metadatadbconnection)
 
             self.logger.debug('DB engine created successfully!')
             return self._dbengine
@@ -157,7 +156,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """Function to test db connection with Oracle database. Returns `True` is success else `False`
 
         Args:
-            engine (:mod:`PonyOrm`.:class:`Database`)
+            engine (:mod:`SQLAlchemy`.:class:`Connection`)
 
         Returns:
             bool
@@ -165,29 +164,30 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         try:
             self.logger.debug('Connecting to database using engine: {}'.format(engine))
             self.logger.debug('Executing SQL using database: "SELECT 1 FROM DUAL"')
-            with db_session:
-                result = engine.select('select 1 from dual')
-                for r in result:
-                    print(r)
-            engine.disconnect()
+
+            connection = engine.connect()
+            result = connection.select('select 1 from dual')
+            for r in result:
+                print(r)
+            connection.close()
             self.logger.debug('Query executed successfully!')
             return True
         except Exception as ex:
             self.logger.error('Error while testing db connection: {}'.format(ex.message))
             return False
 
-    def close_db_session(self, engine):
+    def close_db_session(self, connection):
         """Function to close the database connection
 
         Args:
-            engine (:mod:`PonyOrm`.:class:`Database`)
+            engine (:mod:`SQLAlchemy`.:class:`Connection`)
 
         Returns:
             None
         """
         try:
             self.logger.debug('Trying to close db connection/session')
-            engine.disconnect()
+            connection.close()
             self.logger.debug('DB connection/session closed successfully!')
         except Exception as ex:
             self.logger.error('Error while closing db connection/session: {}'.format(ex.message))
