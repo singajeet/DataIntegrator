@@ -32,13 +32,13 @@ class SetupManager:
         self._config = ConfigManager()
         self.logger.info('Config Manager has been initiated using config file: {}'
                          .format(
-                                    self._config.config_file_name))
+                             self._config.config_file_name))
         self._plugin_manager = PluginManager(categories_filter={"MetaDBPlugins": IMetadataDatabasePlugin})
         self._plugin_manager.setPluginPlaces([self._config.get('Plugins', 'setup_manager_plugins', 0)])
         self._plugin_manager.locatePlugins()
         self._plugin_manager.loadPlugins()
 
-    def list(self):
+    def list_db(self):
         """Provides the list of all installed plugins that can be configured with Data Integrator
 
         Yields:
@@ -49,7 +49,7 @@ class SetupManager:
                 plugin.plugin_object.iplugin_name))
             yield plugin.plugin_object.iplugin_name
 
-    def install(self, db_plugin_name):
+    def install_db(self, db_plugin_name):
         """This function should be used to setup the Data Integrator on the current system
 
         Args:
@@ -76,7 +76,17 @@ class SetupManager:
                     engine = metadata_db.create_db_engine(self._config)
                     metadata_db.test_db_connection(engine)
 
-    def test_database(self):
+    def count_db(self):
+        """Provide the number of plugins available for installing database
+
+        Args:
+            None
+        Returns:
+            int
+        """
+        return len(self._plugin_manager.getPluginsOfCategory('MetaDBPlugins'))
+
+    def test_db(self):
         """Function to test the database connectivity currently configured for Data Integrator
         """
         plugin_found = False

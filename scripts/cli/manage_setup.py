@@ -16,35 +16,59 @@ def main():
     print('Command Line Interface (CLI) for Data Integrator setup support\n')
 
 
-@main.command()
+@main.group()
+def install():
+    """Use to install DI components. See --help to see more options
+    """
+    pass
+
+
+@main.group()
 def list():
+    """Shows the list of DI components. See --help to see more options
+    """
+    pass
+
+
+@main.group()
+def test():
+    """Test a DI component. See --help to see more options
+    """
+    pass
+
+
+@list.command()
+def list_db():
     """List all the installed plugins for storing metadata in the database
     """
     print('Below is the list of installed database plugins:')
     print('------------------------------------------------')
     counter = 0
-    for db in SetupManager().list():
+    for db in SetupManager().list_db():
         print('{}. {}'.format(counter, db))
         counter += 1
 
 
-@main.command()
-@click.argument('db_plugin_name')
-def install(db_plugin_name):
-    """Install and configure the selected database (passed as argument)
-        for storing the metadata
-
-    Args:
-        db_plugin_name(str):  Name of db plugin that needs to be installed
+@install.command()
+@click.option('--db_plugin_name', help='The db_plugin_name for database. See \'list\' command for more info')
+def install_db(db_plugin_name):
+    """Install and configure the selected database for storing the metadata
     """
-    SetupManager().install(db_plugin_name)
+    setup_manager = SetupManager()
+    if setup_manager.count_db() > 0:
+        if db_plugin_name in [db for db in setup_manager.list_db()]:
+            setup_manager.install_db(db_plugin_name)
+        else:
+            print('Invalid database plugin name. Please check the \'list\' command for valid name')
+    else:
+        print('No database plugins found installed. Please check with your admin!')
 
 
-@main.command()
-def testdb():
+@test.command()
+def test_db():
     """Tests the connectivity of existing database configured for storing metadata
     """
-    SetupManager().test_database()
+    SetupManager().test_db()
 
 
 if __name__ == '__main__':
