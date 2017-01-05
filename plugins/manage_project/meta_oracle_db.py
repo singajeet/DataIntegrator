@@ -9,7 +9,7 @@ from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
 from sqlalchemy import create_engine
-import integrator.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.manage_project.iplugins.meta_database_interfaces as plugintypes
 from flufl.i18n import initialize
 
 _ = initialize(__file__)

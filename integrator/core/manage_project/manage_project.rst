@@ -1,14 +1,14 @@
-Documentation for the manage_setup package
+Documentation for the manage_project package
 *******************************************
 
-.. automodule:: integrator.core.manage_setup
+.. automodule:: integrator.core.manage_project
 
 Usage of the Install Module
 ===========================
 
-Below document provides help on how to use Install module
+Below document provides help on how to use Manager module
 
-.. automodule:: integrator.core.manage_setup.install
+.. automodule:: integrator.core.manage_project.manager
     :members:
 
 Usage of the IPlugins Module
@@ -16,5 +16,5 @@ Usage of the IPlugins Module
 
 Below document provides help on how to use IPlugins module to develop plugins
 
-.. automodule:: integrator.core.manage_setup.iplugins
+.. automodule:: integrator.core.manage_project.iplugins
     :members:

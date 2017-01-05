@@ -5,7 +5,7 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import integrator.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.manage_project.iplugins.meta_database_interfaces as plugintypes
 import logging
 from pony.orm import Database, db_session
 from flufl.i18n import initialize

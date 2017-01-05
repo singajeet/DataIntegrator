@@ -16,12 +16,12 @@ from flufl.i18n import initialize
 _ = initialize(__file__)
 
 
-class SetupManager:
+class ProjectManager:
     """Setup Manager class is used to create and manage Data Integrator projects
 
     """
 
-    logger = logging.getLogger('{}.SetupManager'.format(__package__))
+    logger = logging.getLogger('{}.ProjectManager'.format(__package__))
     _config = None
     _plugin_manager = None
 
@@ -49,7 +49,7 @@ class SetupManager:
             self.logger.debug(_('Name: %s | Category Type: MetaDBPlugins') % plugin.plugin_object.iplugin_name)
             yield plugin.plugin_object.iplugin_name
 
-    def install_db(self, db_plugin_name):
+    def config_db(self, db_plugin_name):
         """This function should be used to setup the Data Integrator on the current system
 
         Args:
@@ -105,19 +105,19 @@ class SetupManager:
             self.logger.warning(_('WARNING: No database is configured. Please check documentation for more details'))
             return False
 
-    def install_core(self):
+    def config_core(self):
         pass
 
-    def install_cli(self):
+    def config_cli(self):
         pass
 
-    def install_plugin(self):
+    def config_plugin(self):
         pass
 
-    def install_template(self):
+    def config_template(self):
         pass
 
-    def install_security(self):
+    def config_security(self):
         pass
 
 
