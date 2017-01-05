@@ -5,8 +5,11 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import scripts.core.data_object.iplugins.files as plugintypes
+import integrator.core.data_object.iplugins.files as plugintypes
 import logging
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
 
 
 class DefaultFilePlugin(plugintypes.IFile):
@@ -29,5 +32,5 @@ class DefaultFilePlugin(plugintypes.IFile):
                                 newline, closefd, opener)
             return self._handle
         except IOError as ex:
-            self.logger.error('Can\'t open file in read/write mode: {}'.format(ex.message))
+            self.logger.error(_('Unable to open file in read/write mode: %s' % ex.message))
             raise

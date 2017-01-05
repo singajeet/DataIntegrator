@@ -5,10 +5,12 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import scripts.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
 import logging
-from prompt_toolkit import prompt
 from pony.orm import Database, db_session
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
 
 
 class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
@@ -28,9 +30,8 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
         Returns:
             None
         """
-        self.logger.debug('Current Sqlite Memory db requires no settings to be stored')
-        print('There are no details to configure for this database')
-        prompt('Press "Enter" to continue...')
+        self.logger.debug(_('No configuration required for Sqlite'))
+        print(_('No configuration to change for Sqlite'))
 
     def get_connection_string(self):
         """This function will return the URI to connect with Sqlite Memory database
@@ -46,14 +47,14 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
         Returns:
             None
         """
-        self.logger.debug('Below are the database details...')
-        self.logger.debug('DB Name: {} | DB Type: {} | DB uri: {}'.format(
-                            self._dbname, self._dbtype, self._metadatadbconnection))
+        self.logger.debug(_('Below are the database details...'))
+        self.logger.debug(_('DB Name: %s | DB Type: %s | DB uri: %s') % (
+            self._dbname, self._dbtype, self._metadatadbconnection))
 
     def save_details_to_config(self, config):
         """This function will populate default db details for Sqlite in-memory db
         """
-        self.logger.debug('No configuration details will be saved for Sqlite Memory Database in config file')
+        self.logger.debug(_('No configuration to save for Sqlite'))
         self._dbname = 'Sqlite In-Memory'
         self._dbtype = self.DBTYPE_SQLITE_MEM
         self._metadatadbconnection = ':memory:'
@@ -68,7 +69,7 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
         Returns:
             None
         """
-        self.logger.debug('Loading database details for Sqlite in-memory db')
+        self.logger.debug(_('No configuration to load for Sqlite'))
         self._dbname = 'Sqlite In-Memory'
         self._dbtype = self.DBTYPE_SQLITE_MEM
         self._metadatadbconnection = self.get_connection_string()
@@ -84,16 +85,16 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             :mod:`PonyOrm`.:class:`Database`
         """
         try:
-            self.logger.debug('Creating db engine for database: "{}"'.format(self.dbname))
-            self.logger.debug('Using DB connection uri: {}'.format(self.metadatadbconnection))
+            self.logger.debug(_('Creating db engine: %s') % (self._dbname))
+            self.logger.debug(_('Using DB connection uri: %s') % (self._metadatadbconnection))
 
             self._dbengine = Database()
             self._dbengine.bind('sqlite', self.metadatadbconnection)
 
-            self.logger.debug('DB engine created successfully!')
+            self.logger.debug(_('DB engine created successfully!'))
             return self._dbengine
         except Exception as ex:
-            self.logger.error('Error while creating db engine: {}'.format(ex.message))
+            self.logger.error(_('Unable to create db engine due to: %s') % (ex.message))
 
     def test_db_connection(self, engine):
         """Function to test db connection with Sqlite database. Returns `True` is success else `False`
@@ -105,17 +106,17 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             bool
         """
         try:
-            self.logger.debug('Connecting to database using engine: {}'.format(engine))
-            self.logger.debug('Executing SQL using database: "SELECT 1"')
+            self.logger.debug(_('Connecting to database using engine: %s') % (engine))
+            self.logger.debug(_('Using query: "SELECT 1"'))
             with db_session:
                 result = engine.select('select 1')
                 for r in result:
                     print(r)
             engine.disconnect()
-            self.logger.debug('Query executed successfully!')
+            self.logger.debug(_('Query executed successfully!'))
             return True
         except Exception as ex:
-            self.logger.error('Error while testing db connection: {}'.format(ex.message))
+            self.logger.error(_('Database connection failed: %s') % (ex.message))
             return False
 
     def close_db_session(self, engine):
@@ -128,8 +129,8 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
             None
         """
         try:
-            self.logger.debug('Trying to close db connection/session')
+            self.logger.debug(_('Closing database connection'))
             engine.disconnect()
-            self.logger.debug('DB connection/session closed successfully!')
+            self.logger.debug(_('Database connection closed successfully!'))
         except Exception as ex:
-            self.logger.error('Error while closing db connection/session: {}'.format(ex.message))
+            self.logger.error(_('Unable to close database connection: %s') % (ex.message))

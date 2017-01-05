@@ -7,13 +7,16 @@
 """
 import click
 from integrator.core.manage_setup.install import SetupManager
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
 
 
 @click.group()
 def main():
     """Command Line Interface (CLI) for Data Integrator setup support
     """
-    print('Command Line Interface (CLI) for Data Integrator setup support\n')
+    print(_('Command Line Interface (CLI) for Data Integrator setup support\n'))
 
 
 @main.group()
@@ -41,16 +44,13 @@ def test():
 def list_db():
     """List all the installed plugins for storing metadata in the database
     """
-    print('Below is the list of installed database plugins:')
-    print('------------------------------------------------')
-    counter = 0
+    print(_('Database plugins installed:'))
     for db in SetupManager().list_db():
-        print('{}. {}'.format(counter, db))
-        counter += 1
+        print('=> %s' % (db))
 
 
 @install.command()
-@click.option('--db_plugin_name', help='The db_plugin_name for database. See \'list\' command for more info')
+@click.option('--db_plugin_name', help=_('The db_plugin_name for database. See \'list\' command for more info'))
 def install_db(db_plugin_name):
     """Install and configure the selected database for storing the metadata
     """
@@ -59,9 +59,9 @@ def install_db(db_plugin_name):
         if db_plugin_name in [db for db in setup_manager.list_db()]:
             setup_manager.install_db(db_plugin_name)
         else:
-            print('Invalid database plugin name. Please check the \'list\' command for valid name')
+            print(_('Invalid database plugin name. Please check the \'list\' command for valid name'))
     else:
-        print('No database plugins found installed. Please check with your admin!')
+        print(_('No database plugins installed. Please check with your admin!'))
 
 
 @test.command()

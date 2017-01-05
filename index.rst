@@ -11,11 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 6
 
-   scripts/core/manage_setup/manage_setup
-   scripts/core/data_object/file_type
-   scripts/core/source/source
+   integrator/core/manage_setup/manage_setup
+   scrintegratoripts/core/data_object/file_type
+   integrator/core/source/source
    config/config_manager
-   scripts/core/core
+   integrator/core/core
 
 
 Indices and tables

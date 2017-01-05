@@ -1,6 +1,6 @@
 Documentation for the Core package
 *****************************************
 
-.. automodule:: scripts.core
+.. automodule:: integrator.core
 
 

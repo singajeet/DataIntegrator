@@ -9,7 +9,10 @@ from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
 from sqlalchemy import create_engine
-import scripts.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.manage_setup.iplugins.meta_database_interfaces as plugintypes
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
 
 
 class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
@@ -39,16 +42,16 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         Returns:
             None.
         """
-        self.logger.debug('Prompting user for database details')
+        self.logger.debug(_('Prompting user for database details'))
 
-        self._dbname = prompt('Database Name to be stored in config: ')
-        self._dbhost = prompt('Hostname: ')
-        self._dbport = prompt('Port: ')
-        self._dbservice = prompt('Service: ')
-        self._dbuser = prompt('Username: ')
-        self._dbpassword = prompt('Password: ', is_password=True)
+        self._dbname = prompt(_('Database Name to be stored in config: '))
+        self._dbhost = prompt(_('Hostname: '))
+        self._dbport = prompt(_('Port: '))
+        self._dbservice = prompt(_('Service: '))
+        self._dbuser = prompt(_('Username: '))
+        self._dbpassword = prompt(_('Password: '), is_password=True)
         self.print_details_as_logs()
-        self.logger.debug('All details collected successfully from user')
+        self.logger.debug(_('All details collected successfully from user'))
 
     def get_connection_string(self):
         """This function will return the URI to connect with Oracle database
@@ -67,13 +70,13 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         Returns:
             None
         """
-        self.logger.debug('Below are the database detalis...')
-        self.logger.debug('DB Name: {} | DB Type: {} | DB Host: {} | DB Port: {}'.format(
+        self.logger.debug(_('Below are the database detalis...'))
+        self.logger.debug(_('DB Name: %s | DB Type: %s | DB Host: %s | DB Port: %s') % (
             self._dbname,
             self._dbtype,
             self._dbhost,
             self._dbport))
-        self.logger.debug('DB Service: {} | DB Username: {}'.format(self._dbservice, self._dbuser))
+        self.logger.debug(_('DB Service: %s | DB Username: %s') % (self._dbservice, self._dbuser))
 
     def save_details_to_config(self, config):
         """This function will save the db details to config object passed as argument
@@ -85,7 +88,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             None.
         """
         try:
-            self.logger.debug('Trying to save the database details to config file')
+            self.logger.debug(_('Saving settings to config file'))
             if not config.config.has_section('Database'):
                 config.add_section('Database')
 
@@ -102,9 +105,9 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             config.set('Database', 'Metadata_db_connection', self._metadatadbconnection)
             config.save()
             self.print_details_as_logs()
-            self.logger.debug('Database details stored to config file successfully!')
+            self.logger.debug(_('Settings saved successfully!'))
         except Exception as ex:
-            self.logger.error('Error while saving db configuration: {}'.format(ex.message))
+            self.logger.error(_('Unable to save settings due to: %s') % (ex.message))
 
     def load_details_from_config(self, config):
         """Load details of database from configuration file
@@ -116,7 +119,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             None
         """
         try:
-            self.logger.debug('Trying to load database details from config file')
+            self.logger.debug(_('Loading database settings'))
             self._dbname = config.get('Database', 'DB_Name', 0)
             self._dbtype = config.get('Database', 'DB_Type', 0)
             self._dbhost = config.get('Database', 'DB_Host', 0)
@@ -127,9 +130,9 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             self._iplugin_name = config.get('Database', 'DB_Plugin_Name', 0)
             self._metadatadbconnection = config.get('Database', 'Metadata_db_connection', 0)
             self.print_details_as_logs()
-            self.logger.debug('Database details loaded successfully from config file!')
+            self.logger.debug(_('Settings loaded successfully!'))
         except Exception as ex:
-            self.logger.error('Error while loading db details from config: {}'.format(ex.message))
+            self.logger.error(_('Unable to load database settings due to: %s') % (ex.message))
 
     def create_db_engine(self, config):
         """Function to create database engine object for Oracle database
@@ -142,15 +145,15 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
         """
         try:
             self.load_details_from_config(config)
-            self.logger.debug('Creating db engine for database: "{}"'.format(self._dbname))
-            self.logger.debug('Using DB connection uri: {}'.format(self._metadatadbconnection))
+            self.logger.debug(_('Creating db engine: %s') % (self._dbname))
+            self.logger.debug(_('Using DB connection uri: %s') % (self._metadatadbconnection))
 
             self._dbengine = create_engine(self._metadatadbconnection)
 
-            self.logger.debug('DB engine created successfully!')
+            self.logger.debug(_('DB engine created successfully!'))
             return self._dbengine
         except Exception as ex:
-            self.logger.error('Error while creating db engine: {}'.format(ex.message))
+            self.logger.error(_('Unable to create db engine due to: %s') % (ex.message))
 
     def test_db_connection(self, engine):
         """Function to test db connection with Oracle database. Returns `True` is success else `False`
@@ -162,18 +165,18 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             bool
         """
         try:
-            self.logger.debug('Connecting to database using engine: {}'.format(engine))
-            self.logger.debug('Executing SQL using database: "SELECT 1 FROM DUAL"')
+            self.logger.debug(_('Connecting to database using engine: %s') % (engine))
+            self.logger.debug(_('Using query: "SELECT 1 FROM DUAL"'))
 
             connection = engine.connect()
             result = connection.select('select 1 from dual')
             for r in result:
                 print(r)
             connection.close()
-            self.logger.debug('Query executed successfully!')
+            self.logger.debug(_('Query executed successfully!'))
             return True
         except Exception as ex:
-            self.logger.error('Error while testing db connection: {}'.format(ex.message))
+            self.logger.error(_('Database connection failed') % (ex.message))
             return False
 
     def close_db_session(self, connection):
@@ -186,8 +189,8 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
             None
         """
         try:
-            self.logger.debug('Trying to close db connection/session')
+            self.logger.debug(_('Closing database connection'))
             connection.close()
-            self.logger.debug('DB connection/session closed successfully!')
+            self.logger.debug(_('Database connection closed successfully!'))
         except Exception as ex:
-            self.logger.error('Error while closing db connection/session: {}'.format(ex.message))
+            self.logger.error(_('Unable to close database connection: {}') % (ex.message))

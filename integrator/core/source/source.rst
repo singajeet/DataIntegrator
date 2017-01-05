@@ -1,14 +1,14 @@
 Documentation for the source package
 *******************************************
 
-.. automodule:: scripts.core.source
+.. automodule:: integrator.core.source
 
 Usage of the :mod:`source` Module
 ==================================
 
 Below document provides help on how to use :mod:`source_abstract` module
 
-.. automodule:: scripts.core.source.source_abstract
+.. automodule:: integrator.core.source.source_abstract
     :members:
 
 Usage of the :mod:`file_source` Module
@@ -16,5 +16,5 @@ Usage of the :mod:`file_source` Module
 
 Below document provides help on how to use :mod:`file_source` module
 
-.. automodule:: scripts.core.source.file_source
+.. automodule:: integrator.core.source.file_source
     :members:

@@ -5,10 +5,9 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import scripts.core.data_object.iplugins.files as plugintypes
+import integrator.core.data_object.iplugins.files as plugintypes
 from flufl.i18n import initialize
 import logging
-import pandas
 import odo
 import Error
 

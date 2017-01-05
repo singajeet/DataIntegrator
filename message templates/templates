@@ -1,3 +1,8 @@
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
+
+
 'Unable to open file due to error: %s'
 'Unable to prepare data model due to error: %s'
 'ColumnMissingError: Unable to find columns in data frame'
