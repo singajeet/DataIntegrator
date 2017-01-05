@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 import click
-from scripts.core.manage_setup.install import SetupManager
+from integrator.core.manage_setup.install import SetupManager
 
 
 @click.group()

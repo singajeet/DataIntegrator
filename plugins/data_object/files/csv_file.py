@@ -6,9 +6,13 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 import scripts.core.data_object.iplugins.files as plugintypes
+from flufl.i18n import initialize
 import logging
 import pandas
 import odo
+import Error
+
+_ = initialize(__file__)
 
 
 class CSVFile(plugintypes.IFile):
@@ -40,7 +44,7 @@ class CSVFile(plugintypes.IFile):
                 self._header = True
             self._table = odo.odo(file_name, has_header=self._header)
         except Exception as ex:
-            self.logger.error('Can\'t open csv file due to below error: {}'.format(ex.message))
+            self.logger.error(_('Unable to open file due to error: %s') % ex.message)
             raise
 
     def get_pandas_dataframe(self):
@@ -54,20 +58,27 @@ class CSVFile(plugintypes.IFile):
         """
         try:
             if self._table.columns is not None:
+                cls_attributes = {}
                 for column in self._table.columns:
-
+                    # Prepare column name as class attributes
+                    cls_attributes[column] = self._table[column]
             else:
-                raise CsvModelColumnMissingError(self._table)
+                raise self.CsvModelColumnMissingError(self._table)
         except Exception as ex:
-            self.logger.error('Error while preparing data model from csv file')
+            self.logger.error(_('Unable to prepare data model due to error: %s') % ex.message)
             raise
 
+    """============================================================================
+    #
+    #   Below section contains classes related to exceptions and other metaclasses
+    #
+    ============================================================================"""
     class CsvModelColumnMissingError(Error):
         """Raised when the csv table do not have the columns defined
         """
         logger = logging.getLogger('{}.CSVFile.CsvModelColumnMissingError'.format(__package__))
-        expression = 'ColumnMissingError: No columns available in csv file loaded in data frame: {}'
-        message = 'ColumnMissingError: At least one column should be provided in the csv file to prepare data model'
+        expression = _('ColumnMissingError: Unable to find columns in data frame')
+        message = _('ColumnMissingError: Atleast one column is required in csv file')
 
         def __init__(self, object_name):
             self.logger.error(self.expression.format(object_name))

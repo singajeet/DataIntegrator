@@ -16,11 +16,11 @@ class IFileSource(FileSource, IPlugin):
     """
 
     _iplugin_name = None
-    
+
     @property
     def iplugin_name(self):
         return self._iplugin_name
-    
+
     @iplugin_name.setter
     def iplugin_name(self, value):
         self._iplugin_name = value
@@ -45,4 +45,3 @@ class IFileSource(FileSource, IPlugin):
             The file on the file system that will be used as source
         """
         FileSource.__init__(self, source_name, pfile)
-

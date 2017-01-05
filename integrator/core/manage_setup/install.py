@@ -106,6 +106,21 @@ class SetupManager:
             print('WARNING: No database is configured. Use "install" command to configure it else DI will not work')
             return False
 
+    def install_core(self):
+        pass
+
+    def install_cli(self):
+        pass
+
+    def install_plugin(self):
+        pass
+
+    def install_template(self):
+        pass
+
+    def install_security(self):
+        pass
+
 
 if __name__ == '__main__':
     pass
