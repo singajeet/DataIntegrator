@@ -24,8 +24,9 @@ class ProjectManager:
     logger = logging.getLogger('{}.ProjectManager'.format(__package__))
     _config = None
     _plugin_manager = None
+    _project_name = None
 
-    def __init__(self):
+    def __init__(self, project_name):
         """Initializer of Project Manager
 
                 Project **logging** & **configuration** will be initialized in this class
@@ -38,6 +39,23 @@ class ProjectManager:
         self._plugin_manager.setPluginPlaces([self._config.get('Plugins', 'setup_manager_plugins', 0)])
         self._plugin_manager.locatePlugins()
         self._plugin_manager.loadPlugins()
+        """Assign the project name to class variable which will be used further in context
+        """
+        self._project_name = project_name
+
+    def __enter__(self):
+        """Context manager will try to open the project provide as arg if found
+            else it will create a new project with the name provided in argument
+        """
+        #   logic to open or create new project
+        #
+        return self
+
+    def __exit__(self):
+        """Context manager will release the resources used and will save the project
+        """
+        #   release resource and save project
+        #
 
     def list_db(self):
         """Provides the list of all installed plugins that can be configured with Data Integrator
