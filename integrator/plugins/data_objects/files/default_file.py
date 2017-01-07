@@ -32,5 +32,5 @@ class DefaultFilePlugin(plugintypes.IFile):
                                 newline, closefd, opener)
             return self._handle
         except IOError as ex:
-            self.logger.error(_('Unable to open file in read/write mode: %s' % ex.message))
+            self.logger.error(_('Unable to open file in read/write mode: %s') % (ex.message))
             raise

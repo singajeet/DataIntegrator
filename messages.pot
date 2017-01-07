@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-01-07 13:13+India Standard Time\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: .\integrator\cli\manage_project.py:19
+msgid ""
+"Command Line Interface (CLI) for Data Integrator setup support\n"
+msgstr ""
+
+#: .\integrator\cli\manage_project.py:47
+msgid "Database plugins installed:"
+msgstr ""
+
+#: .\integrator\cli\manage_project.py:53
+msgid "The db_plugin_name for database. See 'list' command for more info"
+msgstr ""
+
+#: .\integrator\cli\manage_project.py:62
+msgid "Invalid database plugin name. Please check the 'list' command for valid name"
+msgstr ""
+
+#: .\integrator\cli\manage_project.py:64
+msgid "No database plugins installed. Please check with your admin!"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:35
+msgid "Loading config file..."
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:37
+msgid "Done! Config file: %s"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:67
+msgid "Name: %s | Category Type: MetaDBPlugins"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:80
+msgid "Installing Data Integrator"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:81
+msgid "Preparing info prompts"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:85
+msgid "%s plugin found. Configuration initiated..."
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:89
+msgid "Database configured successfully!"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:90
+msgid "Proceed with database settings(y/n): "
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:92
+msgid "Testing database connectivity..."
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:95
+#: .\integrator\core\manager\manager.py:119
+msgid "Connection successfull!"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:97
+msgid "No database plugin found. Installation aborted!"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:113
+msgid "%s plugin found"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:115
+msgid "%s plugin is configured. Testing database connectivity..."
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:122
+msgid "No database plugin found. Testing aborted!"
+msgstr ""
+
+#: .\integrator\core\manager\manager.py:123
+msgid "WARNING: No database is configured. Please check documentation for more details"
+msgstr ""
+
+#: .\integrator\plugins\data_objects\files\csv_file.py:46
+msgid "Unable to open file due to error: %s"
+msgstr ""
+
+#: .\integrator\plugins\data_objects\files\csv_file.py:67
+msgid "Unable to prepare data model due to error: %s"
+msgstr ""
+
+#: .\integrator\plugins\data_objects\files\csv_file.py:79
+msgid "ColumnMissingError: Unable to find columns in data frame"
+msgstr ""
+
+#: .\integrator\plugins\data_objects\files\csv_file.py:80
+msgid "ColumnMissingError: Atleast one column is required in csv file"
+msgstr ""
+
+#: .\integrator\plugins\data_objects\files\default_file.py:35
+msgid "Unable to open file in read/write mode: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:45
+msgid "Prompting user for database details"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:47
+msgid "Database Name to be stored in config: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:48
+msgid "Hostname: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:49
+msgid "Port: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:50
+msgid "Service: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:51
+msgid "Username: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:52
+msgid "Password: "
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:54
+msgid "All details collected successfully from user"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:73
+msgid "Below are the database detalis..."
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:74
+msgid "DB Name: %s | DB Type: %s | DB Host: %s | DB Port: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:79
+msgid "DB Service: %s | DB Username: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:91
+msgid "Saving settings to config file"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:108
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:110
+msgid "Unable to save settings due to: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:122
+msgid "Loading database settings"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:133
+msgid "Settings loaded successfully!"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:135
+msgid "Unable to load database settings due to: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:148
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:88
+msgid "Creating db engine: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:149
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:89
+msgid "Using DB connection uri: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:153
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:94
+msgid "DB engine created successfully!"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:156
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:97
+msgid "Unable to create db engine due to: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:168
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:109
+msgid "Connecting to database using engine: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:169
+msgid "Using query: \"SELECT 1 FROM DUAL\""
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:176
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:116
+msgid "Query executed successfully!"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:179
+msgid "Database connection failed"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:192
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:132
+msgid "Closing database connection"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:194
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:134
+msgid "Database connection closed successfully!"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_oracle_db.py:196
+msgid "Unable to close database connection: {}"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:33
+msgid "No configuration required for Sqlite"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:34
+msgid "No configuration to change for Sqlite"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:50
+msgid "Below are the database details..."
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:51
+msgid "DB Name: %s | DB Type: %s | DB uri: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:57
+msgid "No configuration to save for Sqlite"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:72
+msgid "No configuration to load for Sqlite"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:110
+msgid "Using query: \"SELECT 1\""
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:119
+msgid "Database connection failed: %s"
+msgstr ""
+
+#: .\integrator\plugins\interfaces\database\meta_sqlite_mem.py:136
+msgid "Unable to close database connection: %s"
+msgstr ""
+
