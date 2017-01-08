@@ -5,7 +5,7 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import enum34
+import enum
 
 
 class IAgent:
@@ -24,7 +24,7 @@ class IAgent:
         return self._agent_name
 
 
-class IAgentType(enum34.Enum):
+class IAgentType(enum.Enum):
     """Defines all config agent supported by DI
     """
     REDIS = 1
