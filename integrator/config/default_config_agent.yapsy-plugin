@@ -1,0 +1,9 @@
+[Core]
+Name = DefaultConfigurationAgent
+Module = default_config_agent
+
+[Documentation]
+Description = Provides functionaly to store/load configuration in Redis
+Author = Ajeet Singh
+Version = 0.1
+Website = None

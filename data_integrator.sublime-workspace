@@ -4,6 +4,110 @@
 		"selected_items":
 		[
 			[
+				"_k",
+				"_redis_key_domain\tstatement"
+			],
+			[
+				"_re",
+				"_refresh_freq\tstatement"
+			],
+			[
+				"key",
+				"key_domain"
+			],
+			[
+				"IAgent",
+				"IAgentType"
+			],
+			[
+				"inte",
+				"integrator"
+			],
+			[
+				"lo",
+				"logger"
+			],
+			[
+				"_red",
+				"_redis_server_object"
+			],
+			[
+				"_redis",
+				"_redis_server_object"
+			],
+			[
+				"start",
+				"start_server"
+			],
+			[
+				"get",
+				"getLogger\t(default_file.py)"
+			],
+			[
+				"IA",
+				"IAgentType\tclass"
+			],
+			[
+				"se",
+				"setter\tdecorator"
+			],
+			[
+				"ag",
+				"agent_type"
+			],
+			[
+				"I",
+				"IConfigurationAgent\tclass"
+			],
+			[
+				"con",
+				"config_interface\tmodule"
+			],
+			[
+				"in",
+				"interfaces\tmodule"
+			],
+			[
+				"Config",
+				"ConfigAgentNotImplementedError"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"__",
+				"__file__\tinstance"
+			],
+			[
+				"list",
+				"list_db\tfunction"
+			],
+			[
+				"setup",
+				"setup_manager"
+			],
+			[
+				"coun",
+				"count_db\tfunction"
+			],
+			[
+				"col",
+				"columns"
+			],
+			[
+				"object",
+				"object_name"
+			],
+			[
+				"ex",
+				"expression"
+			],
+			[
+				"crea",
+				"create_engine\tfunction"
+			],
+			[
 				"p",
 				"property\tclass"
 			],
@@ -68,10 +172,6 @@
 				"setPluginPlaces\tfunction"
 			],
 			[
-				"I",
-				"IMetadataDatabasePlugin\tclass"
-			],
-			[
 				"Plugin",
 				"PluginManager\tclass"
 			],
@@ -100,10 +200,6 @@
 				"format"
 			],
 			[
-				"crea",
-				"create_db_engine"
-			],
-			[
 				"meta",
 				"metadata_db"
 			],
@@ -118,10 +214,6 @@
 			[
 				"file",
 				"file_path\tstatement"
-			],
-			[
-				"object",
-				"object\tclass"
 			],
 			[
 				"conf",
@@ -204,16 +296,8 @@
 				"Session\tclass"
 			],
 			[
-				"se",
-				"sessionmaker\timport"
-			],
-			[
 				"config",
 				"configfile"
-			],
-			[
-				"con",
-				"config_file_name\tstatement"
 			],
 			[
 				"has",
@@ -222,10 +306,6 @@
 			[
 				"sh",
 				"shortcuts\tmodule"
-			],
-			[
-				"__",
-				"__doc__\tinstance"
 			],
 			[
 				"fi",
@@ -246,10 +326,6 @@
 			[
 				"add",
 				"add_section"
-			],
-			[
-				"in",
-				"info\tfunction"
 			],
 			[
 				"wa",
@@ -280,18 +356,11 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/core/data_object/iplugins/file_type_interfaces.py",
+			"file": "message templates/templates",
 			"settings":
 			{
-				"buffer_size": 1207,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "plugins/data_object/file_type/file.py",
-			"settings":
-			{
-				"buffer_size": 2797,
+				"buffer_size": 273,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -304,15 +373,23 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "in",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"in",
+				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"insta",
+				"ter",
+				"Terminal: Open"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
 				"Package Control: Install Package"
 			],
 			[
@@ -334,17 +411,13 @@
 			[
 				"sql",
 				"Set Syntax: PL/SQL (Oracle)"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			]
 		],
 		"width": 416.0
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 126.0,
 		"history":
 		[
 		]
@@ -363,20 +436,67 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object/file_type",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/iplugins",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/configration.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/agents.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/default_file.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/config_interface.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/servers/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/__init__.py",
+		"/C/Software/ZooKeeper/zookeeper-3.4.9/conf/zoo_sample.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_project/meta_sqlite_mem.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/cli/manage_project.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_project/meta_oracle_db.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manage_project/manage_project.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/Configuration.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manage_project/manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqlite_mem.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manage_setup/iplugins/meta_database_interfaces.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_oracle_db.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object/files/default_file.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/iplugins/file_source_interfaces.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manage_setup/install.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/cli/manage_setup.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/data_object/files/csv_file.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/index.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/data_object/data_object.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manage_setup/manage_setup.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/source.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/core.rst",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/stage/templates/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/source_abstract.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/inmemory_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/file_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/database_source.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/source/manager/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/data_object/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/data_object/iplugins/files.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/data_object/iplugins/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/cli/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interfaces.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/install.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/stage/templates/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/stage/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/cli/manage_setup.py",
+		"/C/Users/asingh/Anaconda2/lib/site-packages/yapsy/PluginManager.py",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sharepoint-0.4.2.dist-info/DESCRIPTION.rst",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sharepoint-0.4.2.dist-info/INSTALLER",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sharepoint/cmd.py",
+		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/README.txt",
+		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/BUILD.txt",
+		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/samples/DatabaseStartup.py",
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/iplugins/file_type_interfaces.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_interfaces.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/file_type.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
@@ -391,8 +511,6 @@
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interfaces.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqlite_mem.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/csv_file_source.py",
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/log/rabbit@asingh-HP.log",
@@ -402,7 +520,6 @@
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/db/rabbit@asingh-HP-mnesia/cluster_nodes.config",
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/rabbitmq.config",
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/db/rabbit@asingh-HP-mnesia/rabbit_vhost.DCL",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/index.rst",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/ManageSetup.rst",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/conf.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator - Copy/index.rst",
@@ -411,11 +528,9 @@
 		"/C/Users/asingh/Anaconda2/Lib/site-packages/Sphinx-1.4.6-py2.7.egg/sphinx/setup_command.py",
 		"/C/Users/asingh/Anaconda2/Lib/site-packages/Sphinx-1.4.6-py2.7.egg/sphinx/make_mode.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/Core.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/cli/manage_setup.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqlite_mem.yapsy-plugin",
 		"/C/Users/asingh/Anaconda2/Lib/site-packages/click/decorators.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/Configuration.cfg",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqllite_mem.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqllite_mem.yapsy-plugin",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_oracle_db.yapsy-plugin",
@@ -453,28 +568,7 @@
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/ManageProject.rst",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/install.py",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/README",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/LICENSE",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/SQLToolsConnections.sublime-settings",
-		"/D/Spansion/Projects/DNA/Final Code/PANDA_DEV.sql",
-		"/D/Spansion/Projects/DNA/Final Code/PANDA_DEV_DATA.sql",
-		"/C/Users/asingh/Desktop/db.sql",
-		"/D/Softwares/Oracle Agile SDK/9.3.5_SDK_Samples/samples/api/Login/Login.java",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SQLTools/SQLTools.sublime-settings",
-		"/C/oraclexe/app/oracle/product/11.2.0/server/network/ADMIN/sqlnet.ora",
-		"/C/oraclexe/app/oracle/product/11.2.0/server/network/ADMIN/tnsnames.ora",
-		"/C/oraclexe/app/oracle/product/11.2.0/server/network/ADMIN/listener.ora",
-		"/D/Softwares/Oracle Agile SDK/9.3.5_SDK_Samples/samples/api/APIName/APIName.java",
-		"/D/Softwares/Oracle Agile SDK/9.3.5_SDK_Samples/samples/api/LogOrChangeTimesheet/LogOrChangeTimesheet.java",
-		"/C/Users/asingh/Downloads/test.sql",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
-		"/C/Users/asingh/Hands-On/Python/TurboGear/tg2/wiki20/setup.py"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/__init__.py"
 	],
 	"find":
 	{
@@ -517,61 +611,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/core/data_object/iplugins/file_type_interfaces.py",
+					"file": "message templates/templates",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1207,
+						"buffer_size": 273,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								149,
+								208
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "plugins/data_object/file_type/file.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2797,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"open_with_edit": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -600,11 +668,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.849146110057,
 			1.0
 		],
 		"rows":

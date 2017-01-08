@@ -35,7 +35,13 @@ class IConfigurationAgent(IPlugin, IAgent):
     def iplugin_name(self, value):
         self._iplugin_name = value
 
-    def refresh(self):
+    def start_server(self):
+        raise ConfigAgentNotImplementedError(_('No ConfigAgent implemented'), _('This method needs to be implmented by an subclass'))
+
+    def stop_server(self):
+        raise ConfigAgentNotImplementedError(_('No ConfigAgent implemented'), _('This method needs to be implmented by an subclass'))
+
+    def run(self):
         raise ConfigAgentNotImplementedError(_('No ConfigAgent implemented'), _('This method needs to be implmented by an subclass'))
 
     def get(self, key):
