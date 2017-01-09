@@ -6,11 +6,13 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
+from integrator.core.interfaces.log_server_plugins import ILogServer
 import pickle
 import logging
 import logging.handlers
 import SocketServer
 import struct
+import threading
 
 
 class LogRecordStreamHandler(SocketServer.StreamRequestHandler):
@@ -56,7 +58,7 @@ class LogRecordStreamHandler(SocketServer.StreamRequestHandler):
         logger.handle(record)
 
 
-class LogRecordSocketReceiver(SocketServer.ThreadingTCPServer):
+class LogRecordSocketReceiver(SocketServer.ThreadingTCPServer, ILogServer):
     """
     Simple TCP socket-based logging receiver suitable for testing.
     """
@@ -84,11 +86,24 @@ class LogRecordSocketReceiver(SocketServer.ThreadingTCPServer):
 
     def stop_server(self):
         self.abort = 1
+        self.shutdown()
+        self.server_close()
+
+    def start_server(self):
+        self._thread = threading.Thread(target=self.serve_until_stopped)
+        self._thread.start()
 
 
+"""
 def start_log_server():
     logging.basicConfig(
         format='%(relativeCreated)5d %(name)-15s %(levelname)-8s %(message)s')
     tcpserver = LogRecordSocketReceiver()
-    print('About to start TCP server...')
+
     tcpserver.serve_until_stopped()
+    print('About to start TCP server...')
+
+
+if __name__ == '__main__':
+    start_log_server()
+"""

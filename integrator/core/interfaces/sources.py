@@ -1,13 +1,14 @@
 """
-.. module:: scripts.core.source.source_abstract.py
+.. module:: scripts.core.source.file_source.py
         :platform: Unix, Windows
-        :synopsis: Abstract definition of source used in Data Integrator
+        :synopsis: IPlugin interface for file source used in Data Integrator
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
+import enum
 
 
-class Source(object):
+class ISource:
     """Base class for an source used in Data Integrator
     """
     _source_name = None
@@ -29,9 +30,12 @@ class Source(object):
     def source_type(self, value):
         self._source_type = value
 
+
+class ISourceType(enum.Enum):
     """Source type currently supported in Data Integrator
     """
-    FILE_SOURCE_TYPE = 'FILE_SOURCE_TYPE'
-    IN_MEMORY_SOURCE_TYPE = 'IN_MEMORY_SOURCE_TYPE'
-    DATABASE_SOURCE_TYPE = 'DATABASE_SOURCE_TYPE'
-    WEB_SERVICE_SOURCE_TYPE = 'WEB_SERVICE_SOURCE_TYPE'
+    FILE = 1
+    IN_MEMORY = 2
+    DATABASE = 3
+    WEB_SERVICE = 4
+    OTHERS = -1

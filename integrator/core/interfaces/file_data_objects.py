@@ -6,6 +6,18 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from yapsy.IPlugin import IPlugin
+import enum
+from flufl.i18n import initialize
+
+_ = initialize(__file__)
+
+
+class DataObjectNotImplementedError(Exception):
+    """
+    """
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
 
 
 class IFile(IPlugin):
@@ -15,9 +27,6 @@ class IFile(IPlugin):
     _table = None
     _file_type = None
     _file_name = None
-
-    def __init__(self):
-        IPlugin.__init__(self)
 
     @property
     def file_name(self):
@@ -35,18 +44,17 @@ class IFile(IPlugin):
     def iplugin_name(self, value):
         self._iplugin_name = value
 
-    @property
-    def table(self):
-        return self._table
 
+class IFileType(enum.Enum):
     """File source types supported by current implementation of Data Integrator
         """
-    DEFAULT_FILE = 'DEFAULT_FILE'
-    CSV_FILE = 'CSV_FILE'
-    DELIMITED_FILE = 'DELIMITED_FILE'
-    ZIP_FILE = 'ZIP_FILE'
-    XLS_FILE = 'XLS_FILE'
-    XLSX_FILE = 'XLSX_FILE'
-    JSON_FILE = 'JSON_FILE'
-    XML_FILE = 'XML_FILE'
-    HTML_FILE = 'HTML_FILE'
+    DEFAULT = 1
+    CSV = 2
+    DELIMITED = 3
+    ZIP = 4
+    XLS = 5
+    XLSX = 6
+    JSON = 7
+    XML = 8
+    HTML = 9
+    OTHERS = -1
