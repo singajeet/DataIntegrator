@@ -356,6 +356,14 @@
 	"buffers":
 	[
 		{
+			"file": "/C/Users/asingh/.platformio/platforms/atmelavr/boards/atmegangatmega8.json",
+			"settings":
+			{
+				"buffer_size": 488,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "message templates/templates",
 			"settings":
 			{
@@ -436,11 +444,14 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/AppData/Roaming/Arduino15/packages/MiniCore/hardware/avr/1.0.3/boards.txt",
+		"/C/Users/asingh/AppData/Roaming/Arduino15/packages/MiniCore/hardware/avr/1.0.3/externalprogrammers.txt",
+		"/C/Users/asingh/AppData/Roaming/Arduino15/preferences.txt",
+		"/C/Program Files/Arduino/hardware/platform.keys.rewrite.txt",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/configration.py",
@@ -564,11 +575,7 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/logger.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/ManageProject.rst",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/ManageProject.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_project/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/__init__.py"
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings"
 	],
 	"find":
 	{
@@ -611,8 +618,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/asingh/.platformio/platforms/atmelavr/boards/atmegangatmega8.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 488,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -620,7 +658,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 0,
+					"buffer": 1,
 					"file": "message templates/templates",
 					"semi_transient": false,
 					"settings":
@@ -645,7 +683,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

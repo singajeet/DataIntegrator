@@ -23,6 +23,10 @@ class IAgent:
     def agent_name(self):
         return self._agent_name
 
+    @agent_name.setter
+    def agent_name(self, value):
+        self._agent_name = value
+
 
 class IAgentType(enum.Enum):
     """Defines all config agent supported by DI
@@ -30,3 +34,6 @@ class IAgentType(enum.Enum):
     REDIS = 1
     MEMCACHED = 2
     NOSQL = 3
+    CONFIGURATION = 4
+    LOG = 5
+    OTHERS = -1

@@ -1,12 +1,12 @@
 """
-.. module:: integrator.config.agent
+.. module:: integrator.config.default_config_agent
         :platform: Unix, Windows
         :synopsis: Agent to communicate with the configuration server
                     and helps in get/set the configuration
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-from integrator.core.interfaces.configurations import IConfigurationAgent
+from integrator.core.interfaces.configuration_agent_plugins import IConfigurationAgent
 from integrator.core.interfaces.agents import IAgentType
 import logging
 import redis
