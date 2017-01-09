@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"File",
+				"FileDataObjectNotImplementedError"
+			],
+			[
+				"int",
+				"integrator\t(default_logging_server.py)"
+			],
+			[
+				"_file",
+				"_file_name\t(data_object_plugins.py)"
+			],
+			[
+				"_data",
+				"_data_object_type"
+			],
+			[
+				"data",
+				"data_object_name"
+			],
+			[
+				"inte",
+				"integrator.core.interfaces.logs\t(log_server_plugins.py)"
+			],
+			[
+				"in",
+				"interface"
+			],
+			[
+				"_role",
+				"_role_type"
+			],
+			[
+				"_",
+				"_role_name"
+			],
+			[
+				"ser",
+				"server_close\tfunction"
+			],
+			[
+				"T",
+				"Thread\tclass"
+			],
+			[
+				"ILo",
+				"ILoggerServer"
+			],
+			[
+				"I",
+				"ILoggerType\tclass"
+			],
+			[
+				"_ser",
+				"_server_type\tstatement"
+			],
+			[
+				"start",
+				"start_log_server"
+			],
+			[
+				"s",
+				"start_log_server\tfunction"
+			],
+			[
 				"_k",
 				"_redis_key_domain\tstatement"
 			],
@@ -20,10 +84,6 @@
 				"IAgentType"
 			],
 			[
-				"inte",
-				"integrator"
-			],
-			[
 				"lo",
 				"logger"
 			],
@@ -34,10 +94,6 @@
 			[
 				"_redis",
 				"_redis_server_object"
-			],
-			[
-				"start",
-				"start_server"
 			],
 			[
 				"get",
@@ -56,16 +112,8 @@
 				"agent_type"
 			],
 			[
-				"I",
-				"IConfigurationAgent\tclass"
-			],
-			[
 				"con",
 				"config_interface\tmodule"
-			],
-			[
-				"in",
-				"interfaces\tmodule"
 			],
 			[
 				"Config",
@@ -356,11 +404,30 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/asingh/.platformio/platforms/atmelavr/boards/atmegangatmega8.json",
+			"file": "integrator/main.py",
 			"settings":
 			{
-				"buffer_size": 488,
-				"line_ending": "Unix"
+				"buffer_size": 160,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "integrator/startup/launcher.py",
+			"settings":
+			{
+				"buffer_size": 206,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "integrator/log/default_logging_server.py",
+			"settings":
+			{
+				"buffer_size": 3420,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -444,18 +511,37 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_objects.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_object_plugins.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/file_data_objects.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/file_source_plugins.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/log_server_plugins.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/sources.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/sources/source_abstract.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/roles.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/servers.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/agents.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/default_logging_agent.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/__init__.py",
+		"/C/Users/asingh/.platformio/platforms/atmelavr/boards/atmegangatmega8.json",
+		"/C/Users/asingh/.platformio/boards/atmega8@noxtal.json",
+		"/C/Users/asingh/.platformio/platforms/atmelavr/boards/tinyduino.json",
+		"/C/Users/asingh/.platformio/platforms/atmelavr/boards/sparkfun_megapro8MHz.json",
+		"/C/Users/asingh/.platformio/platforms/atmelavr/boards/nanoatmega168.json",
+		"/C/Users/asingh/.platformio/platforms/atmelavr/boards/mightycore16.json",
 		"/C/Users/asingh/AppData/Roaming/Arduino15/packages/MiniCore/hardware/avr/1.0.3/boards.txt",
 		"/C/Users/asingh/AppData/Roaming/Arduino15/packages/MiniCore/hardware/avr/1.0.3/externalprogrammers.txt",
 		"/C/Users/asingh/AppData/Roaming/Arduino15/preferences.txt",
 		"/C/Program Files/Arduino/hardware/platform.keys.rewrite.txt",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/configration.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/agents.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/default_file.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/config_interface.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database/__init__.py",
@@ -557,25 +643,7 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/cli/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/Config.rst",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/log/logging_config.ini",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-workspace",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-project",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/configuration.cfg",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/database_source.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/inmemory_source.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/config_manager.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/sqlalchemy/engine/result.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/config_manager.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/configuration.cfg",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/setup_details.xml",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/config_manager.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/logging_config.ini",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/configuration.cfg",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/logger.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/ManageProject.rst",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-workspace"
 	],
 	"find":
 	{
@@ -618,37 +686,132 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/asingh/.platformio/platforms/atmelavr/boards/atmegangatmega8.json",
+					"file": "integrator/main.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 488,
+						"buffer_size": 160,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
+								159,
 								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "integrator/startup/launcher.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								205,
+								205
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "integrator/log/default_logging_server.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3243,
+								3243
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1230.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -658,7 +821,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "message templates/templates",
 					"semi_transient": false,
 					"settings":
@@ -670,8 +833,8 @@
 						"selection":
 						[
 							[
-								149,
-								208
+								59,
+								35
 							]
 						],
 						"settings":
@@ -683,7 +846,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
