@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"config",
+				"config_server_password"
+			],
+			[
+				"config_server",
+				"config_server_port\t(configuration.cfg)"
+			],
+			[
+				"la",
+				"launch_config"
+			],
+			[
+				"laun",
+				"launch_config"
+			],
+			[
+				"Con",
+				"ConfigManager"
+			],
+			[
+				"lau",
+				"launch_log"
+			],
+			[
+				"_",
+				"_logger"
+			],
+			[
+				"for",
+				"formatter"
+			],
+			[
+				"set",
+				"setLevel"
+			],
+			[
 				"File",
 				"FileDataObjectNotImplementedError"
 			],
@@ -34,10 +70,6 @@
 			[
 				"_role",
 				"_role_type"
-			],
-			[
-				"_",
-				"_role_name"
 			],
 			[
 				"ser",
@@ -216,10 +248,6 @@
 				"loadPlugins\tfunction"
 			],
 			[
-				"set",
-				"setPluginPlaces\tfunction"
-			],
-			[
 				"Plugin",
 				"PluginManager\tclass"
 			],
@@ -242,10 +270,6 @@
 			[
 				"script",
 				"scripts.core.manage_setup.install.py\t(install.py)"
-			],
-			[
-				"for",
-				"format"
 			],
 			[
 				"meta",
@@ -344,10 +368,6 @@
 				"Session\tclass"
 			],
 			[
-				"config",
-				"configfile"
-			],
-			[
 				"has",
 				"has_section\tfunction"
 			],
@@ -404,28 +424,10 @@
 	"buffers":
 	[
 		{
-			"file": "integrator/main.py",
+			"file": "integrator/node/interfaces.py",
 			"settings":
 			{
-				"buffer_size": 160,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "integrator/startup/launcher.py",
-			"settings":
-			{
-				"buffer_size": 206,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "integrator/log/default_logging_server.py",
-			"settings":
-			{
-				"buffer_size": 3420,
+				"buffer_size": 220,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -512,10 +514,21 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/container/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/default_logging_server.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup/configuration.cfg",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/main.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup/launcher.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/thread_manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/plugin_manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/node_manager.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_objects.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_object_plugins.py",
@@ -634,16 +647,7 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/source/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_plugin.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interface.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/manager/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/source/csvloadsourceplugin.yapsy-plugin",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/cli/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/config/Config.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/log/logging_config.ini",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/data_integrator.sublime-workspace"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interface.py"
 	],
 	"find":
 	{
@@ -686,132 +690,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "integrator/main.py",
+					"file": "integrator/node/interfaces.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 160,
+						"buffer_size": 220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								159,
-								0
+								219,
+								219
 							]
 						],
 						"settings":
 						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
 							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "integrator/startup/launcher.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 206,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								205,
-								205
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"open_with_edit": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "integrator/log/default_logging_server.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3420,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3243,
-								3243
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1230.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -821,7 +729,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "message templates/templates",
 					"semi_transient": false,
 					"settings":
@@ -846,7 +754,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
