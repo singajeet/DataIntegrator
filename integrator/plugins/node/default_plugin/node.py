@@ -5,10 +5,9 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-from integrator.node.interfaces import INode, INodeType
+from integrator.node.interfaces import INode, INodeType, INodeInfo
 from flufl.i18n import initialize
 from Crypto.Hash import SHA256
-from prompt_toolkit.shortcuts import confirm
 import logging
 import platform
 import uuid
@@ -19,7 +18,7 @@ import sys
 _ = initialize(__file__)
 
 
-class nsystem:
+class NodeInfo(INodeInfo):
     """
     """
 
@@ -34,7 +33,7 @@ class nsystem:
 
     def get_hash(self):
         self._mac_address = uuid.getnode()
-        self._system_hash = SHA256.new(self._mac_address).hexdigest()
+        self._sys_identifier = SHA256.new(self._mac_address).hexdigest()
 
     def __str__(self):
         return """Machine: %s
@@ -56,25 +55,29 @@ class Node(INode):
     _node_type = INodeType.BASIC
     _logger = logging.getLogger('%s.INode' % __package__)
     _kwds = None
-    _hash_file_name = '.node.hash'
+    _sys_id_file_name = 'sys.node.id.hash'
+    _db_file_name = 'db.node.json'
 
-    def _load_system_details(self):
-        self._system_details = nsystem()
+    def load_system_details(self):
+        self._system_details = NodeInfo()
         self._node_name = self._system_details._node
         self._node_host = socket.gethostbyname(socket.gethostname())
         self._node_port = 1344
 
-    def exists(self):
-        if os.path.isfile(self._hash_file_name):
+    def get_node_info(self):
+        return self._system_details
+
+    def hash_exists(self):
+        if os.path.isfile(self._sys_id_file_name):
             try:
-                with open(self._hash_file_name, 'r') as hfile:
-                    v_hash = hfile.read()
+                with open(self._sys_id_file_name, 'r') as hfile:
+                    v_sys_id = hfile.read()
             except IOError as e:
-                self._logger.error(_('Unable to open hash file. Could be an permission isuue: %s') % (e.message))
+                self._logger.error(_('Unable to open sys identifier file. Could be an permission isuue: %s') % (e.message))
                 sys.exit(-1)
 
-            if v_hash != self._system_details.get_hash():
-                self._logger.error(_('WARNING! Tampered hash file for this node. System will exit!'))
+            if v_sys_id != self._system_details.get_hash():
+                self._logger.error(_('WARNING! Tampered sys identifier file for this node. System will exit!'))
                 sys.exit(-1)
 
             return True
@@ -84,31 +87,19 @@ class Node(INode):
     def create_node(self):
         try:
             self._logger.debug(_('User choosed to configure a new node on this machine'))
-            with open(self._hash_file_name, 'w') as hfile:
+            with open(self._sys_id_file_name, 'w') as hfile:
                 hfile.write(self._system_details.get_hash())
-                self._logger.debug(_('New hash file created for this node and saved!'))
+                self._logger.debug(_('New sys id file created for this node and saved!'))
         except IOError as e:
-            self._logger.error(_('Unable to create new hash file. System will exit: %s') % (e.message))
+            self._logger.error(_('Unable to create new sys id file. System will exit: %s') % (e.message))
             sys.exit(-1)
 
     def __init__(self):
-        """ The node information will be initialized in the constructor.
-            IP address and Port will be assigned to be used for this node
-            and hash will be prepared to validate the database information
-            for this node
+        """ Default constructor of an node
         """
+        self.load_system_details()
         self._logger.info('Node has been initialized')
-        self._load_system_details()
-        if self.exists():
-                self._looger.debug(_('Found an existing node and same will be booted'))
-        else:
-            self._logger.info(_('No previous intallation found on this node'))
-            response = confirm(message=_('A new node will be configiured. Proceed(Y/N): '))
 
-            if response:
-                self.create_node()
-            else:
-                self._logger.info(_('Configuration terminated as per the selection'))
 
 
 

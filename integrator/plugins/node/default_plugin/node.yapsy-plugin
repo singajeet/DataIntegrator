@@ -1,0 +1,9 @@
+[Core]
+Name = DefaultNode
+Module = node
+
+[Documentation]
+Description = Default implementation of an node in distributed network
+Author = Ajeet Singh
+Version = 0.1
+Website = None
