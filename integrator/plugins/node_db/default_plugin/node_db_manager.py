@@ -6,10 +6,11 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-from integrator.node.interfaces import INodeDatabaseManager, INodeDatabaseType, Base
+from integrator.node.interfaces import INodeDatabaseManager, INodeDatabaseType, Base, INodeModel
 import os
 import sys
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from flufl.i18n import initialize
 
 
@@ -44,17 +45,21 @@ class DefaultNodeDatabaseManager(INodeDatabaseManager):
         """
         pass
 
+    def connect_to_database(self):
+        pass
+
     def create_database(self):
         """
         """
         try:
             if not os.path.isdir(self._db_file_path):
                 os.mkdir(self._db_file_path)
-                self.logger.debug('database path created: %s' % self._db_file_path)
+                self.logger.debug(_('database path created: %s') % self._db_file_path)
 
             self._db_engine = create_engine('sqlite:///%s%s' % (self._db_file_path, self._db_file_name))
             Base.metadata.create_all(self._db_engine)
-            self.logger.debug('Sqlite database engine created successfully')
+            self.Session = sessionmaker(bind=self._db_engine)
+            self.logger.debug(_('Sqlite database engine created successfully'))
         except Exception as ex:
             self.logger.error(_('Unable to create database engine:%s %s') % (ex, ex.message))
             sys.exit(1)
@@ -62,17 +67,22 @@ class DefaultNodeDatabaseManager(INodeDatabaseManager):
     def save_node_details(self, node):
         """
         """
-        # table = self._db.table('node_table')
-        # table.insert({'machine': node.machine})
-        # table.insert({'node': node.node})
-        # table.insert({'platform': node.platform})
-        # table.insert({'processor': node.processor})
-        # table.insert({'release': node.release})
-        # table.insert({'system': node.system})
-        # table.insert({'version': node.version})
-        # table.insert({'mac_address': node.mac_address})
-        # table.insert({'sys_identifier': node.sys_identifier})
-        pass
+        try:
+            session = self.Session()
+            self.logger.debug(_('Session created with database: %s') % session)
+            if session.query(INodeModel).count() == 0:
+                self.logger.debug(_('No record exist for node'))
+                session.add(node)
+                session.commit()
+                self.logger.debug(_('New node saved in database'))
+            else:
+                self.logger.debug(_('Node information already exist in db'))
+                session.delete(node)
+                session.add(node)
+                session.commit()
+                self.logger.debug(_('Updated node information saved in db'))
+        except Exception as ex:
+            self.logger.error(_('Unable to save node information in db: %s') % (ex.message))
 
     def load_node_details(self, node):
         """
