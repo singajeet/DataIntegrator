@@ -19,6 +19,7 @@ _ = initialize(__file__)
 class NodeNotImplementedError(Exception):
     """Exception will be raised if no implementation found for INode
     """
+
     def __init__(self, expression, message):
         self.expression = expression
         self.message = message
@@ -144,9 +145,10 @@ class INodeDatabaseType(Names):
     MSSQL = NamedConstant()
 
 
-class NodeDatabaseNotImplementedError:
+class NodeDatabaseNotImplementedError(Exception):
     """
     """
+
     def __init__(self, expression, message):
         self.expression = expression
         self.message = message
@@ -162,22 +164,37 @@ class INodeDatabaseManager(IPlugin):
     _iplugin_type = None
 
     def load_db_details(self):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def node_db_exists(self):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def validate_database(self):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def create_database(self):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def load_node_details(self, node):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def save_node_details(self, node):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
+
+
+class NodeDBCredentialsNotImplementedError(Exception):
+    """
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
 
 
 class INodeDBCredentials(IPlugin):
@@ -189,34 +206,25 @@ class INodeDBCredentials(IPlugin):
     _iplugin_type = None
 
     def __init__(self, file_name):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def credentials_exists(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def prompt_credentials(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def save_credentials(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def load_credentials(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
 
     def get_credentials(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))

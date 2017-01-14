@@ -87,7 +87,8 @@ class Node(INode):
             return -1
 
     def validate_sys_id(self, v_sys_id):
-        self.logger.debug(_('Validating sys id: %s (from file) against: %s (system default)') % (v_sys_id, self.node_details.sys_identifier))
+        self.logger.debug(_('Validating sys id: %s (from file) against: %s (system default)') %
+                          (v_sys_id, self.node_details.sys_identifier))
         return v_sys_id == self.node_details.sys_identifier
 
     def create_node(self):
@@ -108,10 +109,3 @@ class Node(INode):
         """ Default constructor of an node
         """
         self.logger = create_logger('%s.INode' % (__name__))
-        # self.logger = logging.getLogger('%s.INode' % (__name__))
-        # self.logger.setLevel(logging.DEBUG)
-        # ch = logging.StreamHandler()
-        # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        # ch.setFormatter(formatter)
-        # self.logger.addHandler(ch)
-        # self.logger.info('Node has been initialized')

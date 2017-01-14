@@ -15,12 +15,6 @@ from flufl.i18n import initialize
 
 
 _ = initialize(__file__)
-# logger = logging.getLogger(__package__)
-# logger.setLevel(logging.DEBUG)
-# ch = logging.StreamHandler()
-# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# ch.setFormatter(formatter)
-# logger.addHandler(ch)
 logger = create_logger(__package__)
 
 
@@ -64,10 +58,3 @@ if __name__ == '__main__':
         logger.debug(_('Database is not configured yet and will be initiated now'))
         db_manager.create_database()
         logger.debug(_('Database configured successfully!'))
-
-
-
-
-
-
-
