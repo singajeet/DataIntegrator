@@ -5,110 +5,113 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-from integrator.node.interfaces import INode, INodeType, INodeInfo
+from integrator.log.logger import create_logger
+from integrator.node.interfaces import INode, INodeType, INodeModel
 from flufl.i18n import initialize
-from Crypto.Hash import SHA256
-import logging
-import platform
-import uuid
 import socket
 import os
 import sys
+import platform
+import uuid
+from Crypto.Hash import SHA256
+
 
 _ = initialize(__file__)
 
 
-class NodeInfo(INodeInfo):
+class NodeModel(INodeModel):
     """
     """
 
-    def __init__(self):
-        self._machine = platform.machine()
-        self._node = platform.node()
-        self._platform = platform.platform()
-        self._processor = platform.processor()
-        self._release = platform.release()
-        self._system = platform.system()
-        self._version = platform.version()
-
-    def get_hash(self):
-        self._mac_address = uuid.getnode()
-        self._sys_identifier = SHA256.new(self._mac_address).hexdigest()
+    def get_sys_id_hash(self):
+        return self.sys_identifier
 
     def __str__(self):
-        return """Machine: %s
-                    Node: %s
-                    Platform: %s
-                    Processor: %s
-                    Release: %s
-                    System: %s
-                    Version: %s
-                """.format(self._machine, self._node,
-                           self._platform, self._processor,
-                           self._release, self._system, self._version)
+        return ("""Machine: {}
+                    Node: {}
+                    Platform: {}
+                    Processor: {}
+                    Release: {}
+                    System: {}
+                    Version: {}
+                """.format(self.machine, self.node,
+                           self.platform, self.processor,
+                           self.release, self.system, self.version))
 
 
 class Node(INode):
     """Implementation of the INode interface
     """
 
+    _iplugin_name = 'Node'
+    _iplugin_type = 'NodePlugin'
     _node_type = INodeType.BASIC
-    _logger = logging.getLogger('%s.INode' % __package__)
     _kwds = None
+    _sys_id_file_path = ('%s%s.data_integrator%s' % (os.path.expanduser('~'), os.sep, os.sep))
     _sys_id_file_name = 'sys.node.id.hash'
-    _db_file_name = 'db.node.json'
+
+    def populate_node_model(self, node):
+        node.machine = platform.machine()
+        node.node = platform.node()
+        node.platform = platform.platform()
+        node.processor = platform.processor()
+        node.release = platform.release()
+        node.system = platform.system()
+        node.version = platform.version()
+        node.mac_address = uuid.getnode()
+        node.sys_identifier = SHA256.new(str(node.mac_address)).hexdigest()
+        node.node_name = platform.node()
+        node.node_host = socket.gethostbyname(socket.gethostname())
+        node.node_port = 1344
 
     def load_system_details(self):
-        self._system_details = NodeInfo()
-        self._node_name = self._system_details._node
-        self._node_host = socket.gethostbyname(socket.gethostname())
-        self._node_port = 1344
+        self.node_details = NodeModel()
+        self.populate_node_model(self.node_details)
 
     def get_node_info(self):
-        return self._system_details
+        return self.node_details
 
-    def hash_exists(self):
-        if os.path.isfile(self._sys_id_file_name):
+    def sys_id_exists(self):
+        self.logger.debug(_('Searching sys id at: %s') % self._sys_id_file_path)
+        if os.path.isfile(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name))):
             try:
-                with open(self._sys_id_file_name, 'r') as hfile:
+                self.logger.debug(_('Found an existing sys id hash file'))
+                with open(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name)), 'r') as hfile:
                     v_sys_id = hfile.read()
+                    self.logger.debug('sys id found from file: %s' % v_sys_id)
             except IOError as e:
-                self._logger.error(_('Unable to open sys identifier file. Could be an permission isuue: %s') % (e.message))
+                self.logger.error(_('Unable to open sys id file, System will exit now: %s') % (e.message))
                 sys.exit(-1)
-
-            if v_sys_id != self._system_details.get_hash():
-                self._logger.error(_('WARNING! Tampered sys identifier file for this node. System will exit!'))
-                sys.exit(-1)
-
-            return True
+            return v_sys_id
         else:
-            return False
+            return -1
+
+    def validate_sys_id(self, v_sys_id):
+        self.logger.debug(_('Validating sys id: %s (from file) against: %s (system default)') % (v_sys_id, self.node_details.sys_identifier))
+        return v_sys_id == self.node_details.sys_identifier
 
     def create_node(self):
         try:
-            self._logger.debug(_('User choosed to configure a new node on this machine'))
-            with open(self._sys_id_file_name, 'w') as hfile:
-                hfile.write(self._system_details.get_hash())
-                self._logger.debug(_('New sys id file created for this node and saved!'))
-        except IOError as e:
-            self._logger.error(_('Unable to create new sys id file. System will exit: %s') % (e.message))
+            self.logger.debug(_('Generating new sys id for this node'))
+            if not os.path.isdir(self._sys_id_file_path):
+                os.mkdir(self._sys_id_file_path)
+
+            with open(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name)), 'w') as hfile:
+                hfile.write(self.node_details.get_sys_id_hash())
+                self.logger.debug(_('New sys id generated successfully: %s') % self.node_details.get_sys_id_hash())
+                return self.node_details.get_sys_id_hash()
+        except Exception as e:
+            self.logger.error(_('Unable to create new sys id. System will exit now: %s') % (e.message))
             sys.exit(-1)
 
     def __init__(self):
         """ Default constructor of an node
         """
-        self.load_system_details()
-        self._logger.info('Node has been initialized')
-
-
-
-
-
-
-
-
-
-
-
-
-
+        self.logger = create_logger('%s.INode' % (__name__))
+        # self.logger = logging.getLogger('%s.INode' % (__name__))
+        # self.logger.setLevel(logging.DEBUG)
+        # ch = logging.StreamHandler()
+        # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        # ch.setFormatter(formatter)
+        # self.logger.addHandler(ch)
+        # self.logger.info('Node has been initialized')

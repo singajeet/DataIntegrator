@@ -8,7 +8,11 @@
 from flufl.i18n import initialize
 from yapsy.IPlugin import IPlugin
 from constantly import NamedConstant, Names
+from sqlalchemy import Column, String, Integer
+from sqlalchemy.ext.declarative import declarative_base
 
+
+Base = declarative_base()
 _ = initialize(__file__)
 
 
@@ -20,39 +24,33 @@ class NodeNotImplementedError(Exception):
         self.message = message
 
 
-class INodeInfo:
+class INodeModel(Base):
     """A node representation and its attributes as abstract class
     """
-    _machine = None
-    _node = None
-    _platform = None
-    _processor = None
-    _release = None
-    _system = None
-    _version = None
-    _mac_address = None
-    _sys_identifier = None
+    __tablename__ = 'node'
 
-    def get_hash(self):
+    id = Column(Integer, primary_key=True)
+    machine = Column(String(100))
+    node = Column(String(100))
+    platform = Column(String(100))
+    processor = Column(String(100))
+    release = Column(String(100))
+    system = Column(String(100))
+    version = Column(String(100))
+    mac_address = Column(String(100))
+    sys_identifier = Column(String(100))
+    node_name = Column(String(100))
+    node_host = Column(String(100))
+    node_port = Column(Integer)
+
+    def get_sys_id_hash(self):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
 
 class IAbstractNode:
     """Represents an abstract node in distributed network
     """
-
-    _node_name = None
     _node_type = None
-    _node_host = None
-    _node_port = None
-
-    @property
-    def node_name(self):
-        return self._node_name
-
-    @node_name.setter
-    def node_name(self, value):
-        self._node_name = value
 
     @property
     def node_type(self):
@@ -61,13 +59,16 @@ class IAbstractNode:
     def get_node_info(self):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def _load_system_details(self):
+    def load_system_details(self):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def _exists(self):
+    def sys_id_exists(self):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def _create_node(self):
+    def validate_sys_id(self, v_sys_id):
+        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+
+    def create_node(self):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
     def find_master(self):
@@ -151,7 +152,7 @@ class NodeDatabaseNotImplementedError:
         self.message = message
 
 
-class INodeDatabase(IPlugin):
+class INodeDatabaseManager(IPlugin):
     """
     """
 
@@ -160,20 +161,23 @@ class INodeDatabase(IPlugin):
     _iplugin_name = None
     _iplugin_type = None
 
-    def _load_db_details(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+    def load_db_details(self):
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def _exists(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+    def node_db_exists(self):
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def _create_database(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+    def validate_database(self):
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
-    def load_node_details(self):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+    def create_database(self):
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+
+    def load_node_details(self, node):
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
     def save_node_details(self, node):
-        raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
+        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
 
 class INodeDBCredentials(IPlugin):
