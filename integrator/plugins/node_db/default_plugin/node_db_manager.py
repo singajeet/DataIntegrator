@@ -45,10 +45,7 @@ class DefaultNodeDatabaseManager(INodeDatabaseManager):
         """
         pass
 
-    def connect_to_database(self):
-        pass
-
-    def create_database(self):
+    def open_or_create_database(self):
         """
         """
         try:
@@ -69,25 +66,46 @@ class DefaultNodeDatabaseManager(INodeDatabaseManager):
         """
         try:
             session = self.Session()
-            self.logger.debug(_('Session created with database: %s') % session)
-            if session.query(INodeModel).count() == 0:
+            self.logger.debug(_('Session established with database'))
+            query = session.query(INodeModel).filter(INodeModel.sys_identifier == node.sys_identifier)
+            if query.count() == 0:
                 self.logger.debug(_('No record exist for node'))
                 session.add(node)
                 session.commit()
                 self.logger.debug(_('New node saved in database'))
             else:
-                self.logger.debug(_('Node information already exist in db'))
-                session.delete(node)
-                session.add(node)
-                session.commit()
-                self.logger.debug(_('Updated node information saved in db'))
+                self.logger.warn(_('Node details already exists and can\'t be overwritten'))
         except Exception as ex:
             self.logger.error(_('Unable to save node information in db: %s') % (ex.message))
 
-    def load_node_details(self, node):
+    def update_node_details(self, node):
         """
         """
-        # node_q = Query()
-        # node_t = self._db.table('node_table')
-        # node.machine = node_t.search(node_q.)
+        try:
+            session = self.Session()
+            self.logger.debug(_('Node information already exist in db'))
+            query = session.query(INodeModel).filter(INodeModel.sys_identifier == node.sys_identifier)
+            query.first()
+            query.delete()
+            session.add(node)
+            session.commit()
+            self.logger.debug(_('Updated node information saved in db'))
+        except Exception as ex:
+            self.logger.error(_('Unable to update node information in db: %s') % (ex.message))
+
+    def node_details_exists(self, sys_id):
+        """
+        """
+        session = self.Session()
+        query = session.query(INodeModel).filter(INodeModel.sys_identifier == sys_id)
+        return True if query.count() > 0 else False
+
+    def load_node_details(self, sys_id):
+        """
+        """
+        session = self.Session()
+        node = session.query(INodeModel).filter(INodeModel.sys_identifier == sys_id)
+        return node
+
+    def validate_node_details(self, v_sys_id):
         pass

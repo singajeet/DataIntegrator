@@ -27,18 +27,15 @@ if __name__ == '__main__':
 
     v_sys_id = node.sys_id_exists()
     if v_sys_id == -1:
-        logger.info(_('No existing configuration found. Building & configuring new node'))
+        logger.info(_('No existing sys id found'))
         v_sys_id = node.create_node()
-        logger.debug(_('Unique id generated for this node'))
-    else:
-        logger.info(_('Configuration found and will be checked for integrity'))
+        logger.debug(_('sys id saved for this node'))
 
     if not node.validate_sys_id(v_sys_id):
         logger.error(_('Integrity check failed! System will exit now'))
         sys.exit(1)
 
     db_cred = DefaultDBCredentials()
-    logger.debug(_('Loading db credentials'))
     (user, password) = (None, None)
     if not db_cred.credentials_exists():
         logger.debug(_('No db credentials found, user will be prompted for same'))
@@ -47,7 +44,7 @@ if __name__ == '__main__':
         db_cred.save_credentials()
         logger.debug(_('db credentials saved successfully'))
     else:
-        logger.debug(_('db credentials located and will be loaded'))
+        logger.debug(_('db credentials found and will be loaded'))
         db_cred.load_credentials()
         (user, password) = db_cred.get_credentials()
         logger.debug(_('Credentials loaded successfully: %s %s') % (user, password))
@@ -56,5 +53,17 @@ if __name__ == '__main__':
     logger.info(_('Node\'s database manager has been started'))
     if not db_manager.node_db_exists():
         logger.debug(_('Database is not configured yet and will be initiated now'))
-        db_manager.create_database()
-        logger.debug(_('Database configured successfully!'))
+    else:
+        logger.debug(_('Node database found and will be initialized'))
+    db_manager.open_or_create_database()
+
+    if not db_manager.node_details_exists(v_sys_id):
+        db_manager.save_node_details(node.get_node_details())
+    else:
+        db_manager.load_node_details(v_sys_id)
+
+    if not db_manager.validate_node_details(v_sys_id):
+        logger.error(_('Integerity check for node details failed, system will exit now'))
+        sys.exit(1)
+
+    logger.debug(_('Database configured successfully!'))

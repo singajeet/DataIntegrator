@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-from integrator.node.interfaces import INode, INodeType, INodeModel
+from integrator.node.interfaces import INode, INodeType, INodeModel, NodeRole
 from flufl.i18n import initialize
 import socket
 import os
@@ -63,24 +63,24 @@ class Node(INode):
         node.node_name = platform.node()
         node.node_host = socket.gethostbyname(socket.gethostname())
         node.node_port = 1344
+        node.role = NodeRole.MASTER
 
     def load_system_details(self):
         self.node_details = NodeModel()
         self.populate_node_model(self.node_details)
 
-    def get_node_info(self):
+    def get_node_details(self):
         return self.node_details
 
     def sys_id_exists(self):
         self.logger.debug(_('Searching sys id at: %s') % self._sys_id_file_path)
         if os.path.isfile(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name))):
             try:
-                self.logger.debug(_('Found an existing sys id hash file'))
                 with open(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name)), 'r') as hfile:
                     v_sys_id = hfile.read()
-                    self.logger.debug('sys id found from file: %s' % v_sys_id)
+                    self.logger.debug('sys id found for this node: %s' % v_sys_id)
             except IOError as e:
-                self.logger.error(_('Unable to open sys id file, System will exit now: %s') % (e.message))
+                self.logger.error(_('Unable to open sys id file, system will exit now: %s') % (e.message))
                 sys.exit(-1)
             return v_sys_id
         else:
@@ -93,13 +93,12 @@ class Node(INode):
 
     def create_node(self):
         try:
-            self.logger.debug(_('Generating new sys id for this node'))
             if not os.path.isdir(self._sys_id_file_path):
                 os.mkdir(self._sys_id_file_path)
 
             with open(('%s%s' % (self._sys_id_file_path, self._sys_id_file_name)), 'w') as hfile:
                 hfile.write(self.node_details.get_sys_id_hash())
-                self.logger.debug(_('New sys id generated successfully: %s') % self.node_details.get_sys_id_hash())
+                self.logger.debug(_('New sys id generated: %s') % self.node_details.get_sys_id_hash())
                 return self.node_details.get_sys_id_hash()
         except Exception as e:
             self.logger.error(_('Unable to create new sys id. System will exit now: %s') % (e.message))
