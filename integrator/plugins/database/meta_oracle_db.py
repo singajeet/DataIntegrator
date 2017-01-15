@@ -9,13 +9,13 @@ from __future__ import unicode_literals
 import logging
 from prompt_toolkit import prompt
 from sqlalchemy import create_engine
-import integrator.core.manage_project.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.interfaces.meta_databases as interfaces
 from flufl.i18n import initialize
 
 _ = initialize(__file__)
 
 
-class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
+class OracleMetadataDatabasePlugin(interfaces.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of Oracle Database
     """
 
@@ -30,7 +30,7 @@ class OracleMetadataDatabasePlugin(plugintypes.IMetadataDatabasePlugin):
     _dbengine = None
 
     def __init__(self):
-        plugintypes.IMetadataDatabasePlugin.__init__(self)
+        interfaces.IMetadataDatabasePlugin.__init__(self)
         self._dbtype = self.DBTYPE_ORACLE
 
     def prompt_details(self):

@@ -6,7 +6,7 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-from integrator.core.interfaces.configuration_agent_plugins import IConfigurationAgent
+import integrator.core.interfaces.configuration_agent_plugins as interfaces
 from integrator.core.interfaces.agents import IAgentType
 import logging
 import redis
@@ -18,7 +18,7 @@ import time
 _ = initialize(__file__)
 
 
-class RedisConfigurationAgent(IConfigurationAgent, threading.Thread):
+class RedisConfigurationAgent(interfaces.IConfigurationAgent, threading.Thread):
     """Redis configuration agent implementation to save/load configuration
         on remote redis system
     """

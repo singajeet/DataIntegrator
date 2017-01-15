@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-from integrator.node.interfaces import INodeDBCredentials
+import integrator.node.interfaces as interfaces
 import os
 import sys
 from prompt_toolkit import prompt
@@ -16,7 +16,7 @@ from flufl.i18n import initialize
 _ = initialize(__file__)
 
 
-class DefaultDBCredentials(INodeDBCredentials):
+class DefaultDBCredentials(interfaces.INodeDBCredentials):
     """Default implementation for storing and loading the db credentials
     """
 

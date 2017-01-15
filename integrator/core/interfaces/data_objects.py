@@ -5,7 +5,8 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import enum
+from constantly import NamedConstant, Names
+from yapsy.IPlugin import IPlugin
 
 
 class IDataObject:
@@ -27,16 +28,16 @@ class IDataObject:
         return self._data_object_type
 
 
-class IDataObjectType(enum.Enum):
+class IDataObjectType(Names):
     """Data object types supported in DI
     """
-    FILE = 1
-    TABLE = 2
-    DB_TABLE = 3
-    OTHERS = -1
+    FILE = NamedConstant()
+    TABLE = NamedConstant()
+    DB_TABLE = NamedConstant()
+    OTHERS = NamedConstant()
 
 
-class IFile:
+class IFile(IPlugin):
     """Interface for file entities in DI
     """
     _file_type = None
@@ -55,16 +56,16 @@ class IFile:
         return self._file_type
 
 
-class IFileType(enum.Enum):
+class IFileType(Names):
     """File source types supported by current implementation of Data Integrator
         """
-    DEFAULT = 1
-    CSV = 2
-    DELIMITED = 3
-    ZIP = 4
-    XLS = 5
-    XLSX = 6
-    JSON = 7
-    XML = 8
-    HTML = 9
-    OTHERS = -1
+    DEFAULT = NamedConstant()
+    CSV = NamedConstant()
+    DELIMITED = NamedConstant()
+    ZIP = NamedConstant()
+    XLS = NamedConstant()
+    XLSX = NamedConstant()
+    JSON = NamedConstant()
+    XML = NamedConstant()
+    HTML = NamedConstant()
+    OTHERS = NamedConstant()

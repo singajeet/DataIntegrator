@@ -5,14 +5,14 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import integrator.core.data_object.iplugins.files as plugintypes
+import integrator.core.interfaces.data_objects as interfaces
 import logging
 from flufl.i18n import initialize
 
 _ = initialize(__file__)
 
 
-class DefaultFilePlugin(plugintypes.IFile):
+class DefaultFilePlugin(interfaces.IFile):
     """File plugin for simple file operations. For more details,
         please refer to the documentation of built-in file functions
     """
@@ -21,9 +21,9 @@ class DefaultFilePlugin(plugintypes.IFile):
     _handle = None
 
     def __init__(self):
-        plugintypes.IFile.__init__(self)
+        interfaces.IFile.__init__(self)
         self._iplugin_name = 'DefaultFilePlugin'
-        self._file_type = self.DEFAULT_FILE
+        self._file_type = interfaces.IFileType.DEFAULT
 
     def open(self, name, mode='r', buffering=-1, encoding=None, errors=None,
              newline=None, closefd=None, opener=None):

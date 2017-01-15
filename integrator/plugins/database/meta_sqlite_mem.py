@@ -5,7 +5,7 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import integrator.core.manage_project.iplugins.meta_database_interfaces as plugintypes
+import integrator.core.interfaces.meta_databases as interfaces
 import logging
 from pony.orm import Database, db_session
 from flufl.i18n import initialize
@@ -13,7 +13,7 @@ from flufl.i18n import initialize
 _ = initialize(__file__)
 
 
-class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
+class SqliteMetadataDatabase(interfaces.IMetadataDatabasePlugin):
     """This class will be used to store the metadata information of SqlLite Database
     """
     _iplugin_name = 'SqliteMetadataDatabasePlugin'
@@ -21,7 +21,7 @@ class SqliteMetadataDatabase(plugintypes.IMetadataDatabasePlugin):
     _dbengine = None
 
     def __init__(self):
-        plugintypes.IMetadataDatabasePlugin.__init__(self)
+        interfaces.IMetadataDatabasePlugin.__init__(self)
         self._dbtype = self.DBTYPE_SQLITE_MEM
 
     def prompt_details(self):

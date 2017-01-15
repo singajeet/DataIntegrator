@@ -174,7 +174,7 @@ class INodeDatabaseManager(IPlugin):
     _iplugin_name = None
     _iplugin_type = None
 
-    def load_db_details(self):
+    def prepare_node_session(self, dbcredentials):
         raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
@@ -203,10 +203,6 @@ class INodeDatabaseManager(IPlugin):
             'This functionality is not available as no implementation found'))
 
     def update_node_details(self, node):
-        raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
-            'This functionality is not available as no implementation found'))
-
-    def validate_node_details(self, v_sys_id):
         raise NodeDatabaseNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 

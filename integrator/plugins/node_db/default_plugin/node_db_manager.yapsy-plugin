@@ -1,0 +1,9 @@
+[Core]
+Name = DefaultNodeDatabaseManager
+Module = node_db_manager
+
+[Documentation]
+Description = Default implementation of an node database manager
+Author = Ajeet Singh
+Version = 0.1
+Website = None

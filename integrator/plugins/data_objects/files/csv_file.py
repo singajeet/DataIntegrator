@@ -5,16 +5,15 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
-import integrator.core.data_object.iplugins.files as plugintypes
+import integrator.core.interfaces.data_objects as interfaces
 from flufl.i18n import initialize
 import logging
 import odo
-import Error
 
 _ = initialize(__file__)
 
 
-class CSVFile(plugintypes.IFile):
+class CSVFile(interfaces.IFile):
     """File plugin for csv file operations. For more details,
         please refer to the documentation of built-in file functions
     """
@@ -24,16 +23,18 @@ class CSVFile(plugintypes.IFile):
     _encoding = None
     _header = False
 
-    def __init__(self, file_name, has_header=None, **kwds):
+    def __init__(self):
         """Constructor to initialize the CSV file load process
             and store data in the internal :mod:`Pandas`.:class:`DataFrame' table
         Args:
             file_name (str): File name with full path to the CSV file
             has_header (bool): Flag whether the CSV includes header or not
         """
-        plugintypes.IFile.__init__(self)
+        interfaces.IFile.__init__(self)
         self._iplugin_name = 'CSVFilePlugin'
-        self._file_type = self.CSV_FILE
+        self._file_type = interfaces.IFileType.CSV
+
+    def setup_csv_file(self, file_name, has_header=None, **kwds):
         self._file_name = file_name
         self._kwds = kwds
         try:
@@ -72,7 +73,7 @@ class CSVFile(plugintypes.IFile):
     #   Below section contains classes related to exceptions and other metaclasses
     #
     ============================================================================"""
-    class CsvModelColumnMissingError(Error):
+    class CsvModelColumnMissingError(Exception):
         """Raised when the csv table do not have the columns defined
         """
         logger = logging.getLogger('{}.CSVFile.CsvModelColumnMissingError'.format(__package__))

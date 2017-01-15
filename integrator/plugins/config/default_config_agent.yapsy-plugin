@@ -1,5 +1,5 @@
 [Core]
-Name = DefaultConfigurationAgent
+Name = RedisConfigurationAgent
 Module = default_config_agent
 
 [Documentation]

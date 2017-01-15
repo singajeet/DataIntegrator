@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-from integrator.node.interfaces import INode, INodeType, INodeModel, NodeRole
+import integrator.node.interfaces as interfaces
 from flufl.i18n import initialize
 import socket
 import os
@@ -19,7 +19,7 @@ from Crypto.Hash import SHA256
 _ = initialize(__file__)
 
 
-class NodeModel(INodeModel):
+class NodeModel(interfaces.INodeModel):
     """
     """
 
@@ -39,13 +39,13 @@ class NodeModel(INodeModel):
                            self.release, self.system, self.version))
 
 
-class Node(INode):
+class Node(interfaces.INode):
     """Implementation of the INode interface
     """
 
     _iplugin_name = 'Node'
     _iplugin_type = 'NodePlugin'
-    _node_type = INodeType.BASIC
+    _node_type = interfaces.INodeType.BASIC
     _kwds = None
     _sys_id_file_path = ('%s%s.data_integrator%s' % (os.path.expanduser('~'), os.sep, os.sep))
     _sys_id_file_name = 'sys.node.id.hash'
@@ -63,7 +63,7 @@ class Node(INode):
         node.node_name = platform.node()
         node.node_host = socket.gethostbyname(socket.gethostname())
         node.node_port = 1344
-        node.role = NodeRole.MASTER
+        node.role = interfaces.NodeRole.MASTER
 
     def load_system_details(self):
         self.node_details = NodeModel()
