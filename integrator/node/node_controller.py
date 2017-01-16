@@ -5,45 +5,54 @@
 
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
+
+# Required modules are imported below
 from __future__ import unicode_literals
 from integrator.log.logger import create_logger
 import integrator.node.interfaces as interfaces
 from yapsy.PluginManager import PluginManager
 import sys
 from flufl.i18n import initialize
+from config import Config
+from constantly import ValueConstant, Values
 
 
+# Initialize internationalization for the node
 _ = initialize(__file__)
+
+# Initialize loggers for node and yapsy plugin manager
 logger = create_logger(__package__)
 loggeryapsy = create_logger('yapsy')
 
+# Initialize configuration for the node
+confile = file('node.ini')
+config = Config(confile)
+
+
+# Constants to be used in this program
+class constants(Values):
+    NODE_PLUGIN = ValueConstant(config.node_plugin)
+    DB_AUTH_PROVIDER_PLUGIN = ValueConstant(config.db_auth_provider_plugin)
+    NODE_DB_PLUGIN = ValueConstant(config.node_db_plugin)
+
+
+# Main entry point of the node program
 if __name__ == '__main__':
     logger.info(_('Data Integrator node has been started...'))
 
     logger.info(_('Initiating plug-in manager to load required plug-ins...'))
-    simple_plugin_manager = PluginManager()
+    simple_plugin_manager = PluginManager(categories_filter={'Node': interfaces.INode,
+                                                             'DBAuthProvider': interfaces.INodeDBAuthProvider,
+                                                             'DatabaseManager': interfaces.INodeDatabaseManager
+                                                             })
     logger.debug(_('Plug-in manager has been started'))
     simple_plugin_manager.setPluginPlaces(['./integrator/plugins'])
     logger.debug(_('Plugin-in manager will search for plug-ins in folder: /integrator/plugins'))
-    simple_plugin_manager.locatePlugins()
-    simple_plugin_manager.loadPlugins()
-    # simple_plugin_manager.setCategoriesFilter({
-    #                                           'Node': interfaces.INode,
-    #                                           'DBCredentials': interfaces.INodeDBCredentials,
-    #                                           'DatabaseManager': interfaces.INodeDatabaseManager
-    #                                           })
-    # print('Node Plugins: ')
-    # for plugins in simple_plugin_manager.getPluginsOfCategory('Node'):
-    #     print plugins.name
-    # print('DB Credentials Plugins: ')
-    # for plugins in simple_plugin_manager.getPluginsOfCategory('DBCredentials'):
-    #     print plugins.name
-    # print('Database Manager Plugins: ')
-    # for plugins in simple_plugin_manager.getPluginsOfCategory('DatabaseManager'):
-    #     print plugins.name
-    for plugins in simple_plugin_manager.getAllPlugins():
-        print plugins.name
-    # node = INode()
+    simple_plugin_manager.collectPlugins()
+
+    node_plugin = simple_plugin_manager.getPluginByName(constants.NODE_PLUGIN.value, category='Node')
+    db_cred = simple_plugin_manager.getPluginByName(constants.DB_AUTH_PROVIDER_PLUGIN.value, category='DBAuthProvider')
+    db_manager = simple_plugin_manager.getPluginByName(constants.NODE_DB_PLUGIN.value, category='DatabaseManager')
     # node.load_system_details()
     # logger.debug(_('System details loaded'))
     # logger.debug(node.node_details)

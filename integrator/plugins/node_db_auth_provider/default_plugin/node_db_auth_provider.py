@@ -16,7 +16,7 @@ from flufl.i18n import initialize
 _ = initialize(__file__)
 
 
-class DefaultDBCredentials(interfaces.INodeDBCredentials):
+class DefaultNodeDBAuthProvider(interfaces.INodeDBAuthProvider):
     """Default implementation for storing and loading the db credentials
     """
 

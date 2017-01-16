@@ -216,7 +216,7 @@ class NodeDBCredentialsNotImplementedError(Exception):
         self.message = message
 
 
-class INodeDBCredentials(IPlugin):
+class INodeDBAuthProvider(IPlugin):
     """
     """
     _user_name = None

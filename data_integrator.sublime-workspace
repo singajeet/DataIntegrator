@@ -4,6 +4,250 @@
 		"selected_items":
 		[
 			[
+				"IFile",
+				"IFileType\t(data_objects.py)"
+			],
+			[
+				"data",
+				"data_objects\tmodule"
+			],
+			[
+				"INode",
+				"INodeDBCredentials\tclass"
+			],
+			[
+				"set",
+				"setPluginPlaces\tfunction"
+			],
+			[
+				"plu",
+				"PluginManager\tmodule"
+			],
+			[
+				"IN",
+				"INodeDatabaseManager\tclass"
+			],
+			[
+				"load",
+				"load_node_details\tfunction"
+			],
+			[
+				"node",
+				"node_details_exists\tfunction"
+			],
+			[
+				"utc",
+				"utcnow\tfunction"
+			],
+			[
+				"date",
+				"datetime\tclass"
+			],
+			[
+				"da",
+				"datetime\tclass"
+			],
+			[
+				"sys",
+				"sys_identifier"
+			],
+			[
+				"get",
+				"get_node_model\tfunction"
+			],
+			[
+				"inter",
+				"interfaces\tmodule"
+			],
+			[
+				"Name",
+				"NamedConstant"
+			],
+			[
+				"save_",
+				"save_node_details\t(node_db_manager.py)"
+			],
+			[
+				"db",
+				"_db_engine"
+			],
+			[
+				"_db_fil",
+				"_db_file_path\tstatement"
+			],
+			[
+				"_db",
+				"_db_credentials_file_path"
+			],
+			[
+				"is",
+				"isdir\tfunction"
+			],
+			[
+				"_db_c",
+				"_db_credentials_folder_path\tstatement"
+			],
+			[
+				"inte",
+				"integrator.log.logger\t(logger.py)"
+			],
+			[
+				"create",
+				"create_logger"
+			],
+			[
+				"crea",
+				"create_logger\tfunction"
+			],
+			[
+				"cr",
+				"create_logger"
+			],
+			[
+				"c",
+				"create_database\tfunction"
+			],
+			[
+				"sav",
+				"save_credentials\tfunction"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"pr",
+				"prompt_credentials\tfunction"
+			],
+			[
+				"cred",
+				"credentials_exists\t(interfaces.py)"
+			],
+			[
+				"Defa",
+				"DefaultDBCredentials\tclass"
+			],
+			[
+				"D",
+				"DefaultNodeDatabaseManager\tclass"
+			],
+			[
+				"N",
+				"Node\tclass"
+			],
+			[
+				"de",
+				"default_plugin\tmodule"
+			],
+			[
+				"_",
+				"_db_file_name\tstatement"
+			],
+			[
+				"_sys",
+				"_sys_identifier"
+			],
+			[
+				"_mac",
+				"_mac_address\tstatement"
+			],
+			[
+				"_file",
+				"_db_file_name"
+			],
+			[
+				"T",
+				"TinyDB\tclass"
+			],
+			[
+				"_db_",
+				"_db_file_path\tstatement"
+			],
+			[
+				"INodeDa",
+				"INodeDatabaseType"
+			],
+			[
+				"_data",
+				"_database_type\t(interfaces.py)"
+			],
+			[
+				"_da",
+				"_database_name\t(interfaces.py)"
+			],
+			[
+				"wri",
+				"writelines\tfunction"
+			],
+			[
+				"read",
+				"readline\tfunction"
+			],
+			[
+				"prom",
+				"prompt_toolkit"
+			],
+			[
+				"prompt",
+				"prompt_toolkit\tmodule"
+			],
+			[
+				"ex",
+				"expanduser\tfunction"
+			],
+			[
+				"_iplugin",
+				"_iplugin_type\t(interfaces.py)"
+			],
+			[
+				"INo",
+				"INodeDBCredentials"
+			],
+			[
+				"integ",
+				"integrator.node.interfaces\t(interfaces.py)"
+			],
+			[
+				"ei",
+				"exists"
+			],
+			[
+				"_syss",
+				"_system_details\tstatement"
+			],
+			[
+				"conf",
+				"confirm\tfunction"
+			],
+			[
+				"inf",
+				"info"
+			],
+			[
+				"_syste",
+				"_system_details"
+			],
+			[
+				"_node",
+				"_node_name\t(interfaces.py)"
+			],
+			[
+				"SHA",
+				"SHA256\tmodule"
+			],
+			[
+				"int",
+				"integrator\tmodule"
+			],
+			[
+				"_iplu",
+				"_iplugin_type\tstatement"
+			],
+			[
+				"container",
+				"container_id"
+			],
+			[
 				"config",
 				"config_server_password"
 			],
@@ -28,40 +272,12 @@
 				"launch_log"
 			],
 			[
-				"_",
-				"_logger"
-			],
-			[
 				"for",
 				"formatter"
 			],
 			[
-				"set",
-				"setLevel"
-			],
-			[
 				"File",
 				"FileDataObjectNotImplementedError"
-			],
-			[
-				"int",
-				"integrator\t(default_logging_server.py)"
-			],
-			[
-				"_file",
-				"_file_name\t(data_object_plugins.py)"
-			],
-			[
-				"_data",
-				"_data_object_type"
-			],
-			[
-				"data",
-				"data_object_name"
-			],
-			[
-				"inte",
-				"integrator.core.interfaces.logs\t(log_server_plugins.py)"
 			],
 			[
 				"in",
@@ -74,10 +290,6 @@
 			[
 				"ser",
 				"server_close\tfunction"
-			],
-			[
-				"T",
-				"Thread\tclass"
 			],
 			[
 				"ILo",
@@ -128,10 +340,6 @@
 				"_redis_server_object"
 			],
 			[
-				"get",
-				"getLogger\t(default_file.py)"
-			],
-			[
 				"IA",
 				"IAgentType\tclass"
 			],
@@ -150,10 +358,6 @@
 			[
 				"Config",
 				"ConfigAgentNotImplementedError"
-			],
-			[
-				"de",
-				"debug"
 			],
 			[
 				"__",
@@ -178,14 +382,6 @@
 			[
 				"object",
 				"object_name"
-			],
-			[
-				"ex",
-				"expression"
-			],
-			[
-				"crea",
-				"create_engine\tfunction"
 			],
 			[
 				"p",
@@ -228,10 +424,6 @@
 				"iplugin_name\tstatement"
 			],
 			[
-				"db",
-				"dbtype"
-			],
-			[
 				"DB",
 				"DBTYPE_SQLLITE_MEM\tstatement"
 			],
@@ -242,10 +434,6 @@
 			[
 				"pl",
 				"plugin_manager\tstatement"
-			],
-			[
-				"load",
-				"loadPlugins\tfunction"
 			],
 			[
 				"Plugin",
@@ -288,10 +476,6 @@
 				"file_path\tstatement"
 			],
 			[
-				"conf",
-				"config\tmodule"
-			],
-			[
 				"db_s",
 				"db_session\tstatement"
 			],
@@ -328,106 +512,18 @@
 				"Exception\tclass"
 			],
 			[
-				"sav",
-				"save_details_to_config\tfunction"
-			],
-			[
-				"pr",
-				"prompt_details\tfunction"
-			],
-			[
 				"Or",
 				"OracleMetadataDatabase\tclass"
-			],
-			[
-				"DBTY",
-				"DBTYPE_ORACLE\tstatement"
-			],
-			[
-				"Meta",
-				"MetadataDatabase\tclass"
-			],
-			[
-				"exc_",
-				"exc_info\tfunction"
-			],
-			[
-				"Session",
-				"Session\tclass"
-			],
-			[
-				"dbse",
-				"dbsession\tstatement"
-			],
-			[
-				"create",
-				"create_engine\tfunction"
-			],
-			[
-				"Se",
-				"Session\tclass"
-			],
-			[
-				"has",
-				"has_section\tfunction"
-			],
-			[
-				"sh",
-				"shortcuts\tmodule"
-			],
-			[
-				"fi",
-				"fileConfig\tfunction"
-			],
-			[
-				"im",
-				"import\tkeyword"
-			],
-			[
-				"Project",
-				"ProjectManager"
-			],
-			[
-				"rem",
-				"remove_section\tfunction"
-			],
-			[
-				"add",
-				"add_section"
-			],
-			[
-				"wa",
-				"warn\tstatement"
-			],
-			[
-				"proce",
-				"processors"
-			],
-			[
-				"iter",
-				"iterator"
-			],
-			[
-				"Agile",
-				"AgileSessionFactory"
-			],
-			[
-				"De",
-				"DeclarativeBase"
-			],
-			[
-				"Int",
-				"Integer\tclass"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "integrator/node/interfaces.py",
+			"file": "integrator/node/node_controller.py",
 			"settings":
 			{
-				"buffer_size": 220,
+				"buffer_size": 3760,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -514,12 +610,43 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/config",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/container",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/csv_file.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/config/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_objects.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/default_file.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/database/meta_oracle_db.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/database/meta_sqlite_mem.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin/node_db_manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/interfaces.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin/node_db_manager.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin/db_credentials.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin/node.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/node_controller.py",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/logger.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/sys.node.id.hash",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin/db_credentials.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin/node.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/utilities/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/message templates/templates",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/container/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/default_logging_server.py",
@@ -530,7 +657,6 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/plugin_manager.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager/node_manager.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/startup/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_objects.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_object_plugins.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/file_data_objects.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/file_source_plugins.py",
@@ -538,7 +664,6 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/sources.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/sources/source_abstract.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/roles.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/servers.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/agents.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/default_logging_agent.py",
@@ -555,7 +680,6 @@
 		"/C/Program Files/Arduino/hardware/platform.keys.rewrite.txt",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/configration.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/default_file.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/config_interface.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/interfaces/database",
@@ -619,7 +743,6 @@
 		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/csv_file_source.py",
@@ -628,26 +751,7 @@
 		"/C/Windows/.erlang.cookie",
 		"/C/Users/asingh/.erlang.cookie",
 		"/C/Users/asingh/AppData/Roaming/RabbitMQ/db/rabbit@asingh-HP-mnesia/cluster_nodes.config",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/rabbitmq.config",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/db/rabbit@asingh-HP-mnesia/rabbit_vhost.DCL",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/ManageSetup.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/conf.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator - Copy/index.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/make.bat",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/Sphinx-1.4.6-py2.7.egg/sphinx/__init__.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/Sphinx-1.4.6-py2.7.egg/sphinx/setup_command.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/Sphinx-1.4.6-py2.7.egg/sphinx/make_mode.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/Core.rst",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqlite_mem.yapsy-plugin",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/click/decorators.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqllite_mem.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_sqllite_mem.yapsy-plugin",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/meta_oracle_db.yapsy-plugin",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/source/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/plugins/manage_setup/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_plugin.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/iplugins/file_source_interface.py"
+		"/C/Users/asingh/AppData/Roaming/RabbitMQ/rabbitmq.config"
 	],
 	"find":
 	{
@@ -665,6 +769,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			")\n",
 			"snippets",
 			"numpy",
 			"_key_fallback",
@@ -695,28 +800,40 @@
 			[
 				{
 					"buffer": 0,
-					"file": "integrator/node/interfaces.py",
+					"file": "integrator/node/node_controller.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 220,
+						"buffer_size": 3760,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								219,
-								219
+								2125,
+								2125
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 202.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -742,12 +859,11 @@
 						[
 							[
 								59,
-								35
+								59
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
