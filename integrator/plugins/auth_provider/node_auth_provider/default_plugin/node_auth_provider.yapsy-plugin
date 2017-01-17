@@ -1,6 +1,6 @@
 [Core]
-Name = DefaultNodeDBAuthProvider
-Module = node_db_auth_provider
+Name = DefaultNodeAuthProvider
+Module = node_auth_provider
 
 [Documentation]
 Description = Default implementation for storing and loading db credentials

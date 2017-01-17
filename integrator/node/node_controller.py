@@ -43,7 +43,7 @@ if __name__ == '__main__':
     # ####################### Initiate plugin manager ################################################
     logger.info(_('Initiating plug-in manager to load required plug-ins...'))
     plugin_manager = PluginManager(categories_filter={'Node': interfaces.INode,
-                                                      'DBAuthProvider': interfaces.INodeDBAuthProvider,
+                                                      'AuthProvider': interfaces.INodeAuthProvider,
                                                       'DatabaseManager': interfaces.INodeDatabaseManager
                                                       })
     logger.debug(_('Plug-in manager has been started'))
@@ -53,8 +53,19 @@ if __name__ == '__main__':
 
     # ####################### Filter out the plugins required in this program ##########################
     node = plugin_manager.getPluginByName(constants.NODE_PLUGIN.value, category='Node').plugin_object
-    db_cred = plugin_manager.getPluginByName(constants.DB_AUTH_PROVIDER_PLUGIN.value, category='DBAuthProvider').plugin_object
+    if node is None:
+        logger.error(_('No plugin available with Node functionality, system will exit now'))
+        sys.exit(1)
+
+    db_auth = plugin_manager.getPluginByName(constants.DB_AUTH_PROVIDER_PLUGIN.value, category='AuthProvider').plugin_object
+    if db_auth is None:
+        logger.error(_('No plugin available with Auth functionality, system will exit now'))
+        sys.exit(1)
+
     db_manager = plugin_manager.getPluginByName(constants.NODE_DB_PLUGIN.value, category='DatabaseManager').plugin_object
+    if db_manager is None:
+        logger.error(_('No plugin available with DB Manager functionality, system will exit now'))
+        sys.exit(1)
 
     # ####################### Load the system details to be used by Node ###############################
     node.load_system_details()
@@ -72,16 +83,16 @@ if __name__ == '__main__':
         sys.exit(1)
 
     (user, password) = (None, None)
-    if not db_cred.credentials_exists():
+    if not db_auth.credentials_exists():
         logger.debug(_('No db credentials found, user will be prompted for same'))
-        (user, password) = db_cred.prompt_credentials()
+        (user, password) = db_auth.prompt_credentials()
         logger.debug(_('New db credentials: %s | %s') % (user, password))
-        db_cred.save_credentials()
+        db_auth.save_credentials()
         logger.debug(_('db credentials saved successfully'))
     else:
         logger.debug(_('db credentials found and will be loaded'))
-        db_cred.load_credentials()
-        (user, password) = db_cred.get_credentials()
+        db_auth.load_credentials()
+        (user, password) = db_auth.get_credentials()
         logger.debug(_('Credentials loaded successfully: %s %s') % (user, password))
 
     logger.info(_('Node\'s database manager has been started'))

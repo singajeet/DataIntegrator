@@ -17,6 +17,7 @@ Base = declarative_base()
 _ = initialize(__file__)
 
 
+# ########################### Constants defined below #################################3
 class NodeRole(Names):
     """
     """
@@ -25,6 +26,26 @@ class NodeRole(Names):
     BACKUP = NamedConstant()
 
 
+class INodeType(Names):
+    """Types of node supported
+    """
+    BASIC = NamedConstant()
+    ADVANCED = NamedConstant()
+    OTHERS = NamedConstant()
+
+
+class INodeDatabaseType(Names):
+    """
+    """
+    TINYDB = NamedConstant()
+    SQLITE = NamedConstant()
+    SQLITE_INMEMORY = NamedConstant()
+    ORACLE = NamedConstant()
+    MYSQL = NamedConstant()
+    MSSQL = NamedConstant()
+
+
+# ################################# Custom Exception Defined ####################################
 class NodeNotImplementedError(Exception):
     """Exception will be raised if no implementation found for INode
     """
@@ -34,6 +55,25 @@ class NodeNotImplementedError(Exception):
         self.message = message
 
 
+class NodeDatabaseNotImplementedError(Exception):
+    """
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
+
+class NodeDBAuthProviderNotImplementedError(Exception):
+    """
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
+
+# ####################### The model interface of Node to be used with Database ####################
 class INodeModel(Base):
     """A node representation and its attributes as abstract class
     """
@@ -59,6 +99,7 @@ class INodeModel(Base):
         raise NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
 
+# ########################## An abstract definition of Node #########################################
 class IAbstractNode:
     """Represents an abstract node in distributed network
     """
@@ -117,14 +158,7 @@ class IAbstractNode:
         NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
 
-class INodeType(Names):
-    """Types of node supported
-    """
-    BASIC = NamedConstant()
-    ADVANCED = NamedConstant()
-    OTHERS = NamedConstant()
-
-
+# ######################### An abstract interface of Node as plugin ###############################
 class INode(IPlugin, IAbstractNode):
     """interface for the plugins implementations
     """
@@ -145,26 +179,7 @@ class INode(IPlugin, IAbstractNode):
         return self._iplugin_type
 
 
-class INodeDatabaseType(Names):
-    """
-    """
-    TINYDB = NamedConstant()
-    SQLITE = NamedConstant()
-    SQLITE_INMEMORY = NamedConstant()
-    ORACLE = NamedConstant()
-    MYSQL = NamedConstant()
-    MSSQL = NamedConstant()
-
-
-class NodeDatabaseNotImplementedError(Exception):
-    """
-    """
-
-    def __init__(self, expression, message):
-        self.expression = expression
-        self.message = message
-
-
+# ################### An interface to manager database objects related to Node ###################
 class INodeDatabaseManager(IPlugin):
     """
     """
@@ -207,16 +222,8 @@ class INodeDatabaseManager(IPlugin):
             'This functionality is not available as no implementation found'))
 
 
-class NodeDBCredentialsNotImplementedError(Exception):
-    """
-    """
-
-    def __init__(self, expression, message):
-        self.expression = expression
-        self.message = message
-
-
-class INodeDBAuthProvider(IPlugin):
+# ################ An abstract interface to Auth provider to be used by DB Manager #############
+class INodeAuthProvider(IPlugin):
     """
     """
     _user_name = None
@@ -225,25 +232,25 @@ class INodeDBAuthProvider(IPlugin):
     _iplugin_type = None
 
     def __init__(self, file_name):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
     def credentials_exists(self):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
     def prompt_credentials(self):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
     def save_credentials(self):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
     def load_credentials(self):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
     def get_credentials(self):
-        raise NodeDBCredentialsNotImplementedError(_('Node member not implemented'), _(
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
