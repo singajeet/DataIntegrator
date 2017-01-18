@@ -32,7 +32,7 @@ config = Config(confile)
 # Constants to be used in this program
 class constants(Values):
     NODE_PLUGIN = ValueConstant(config.node_plugin)
-    DB_AUTH_PROVIDER_PLUGIN = ValueConstant(config.db_auth_provider_plugin)
+    AUTH_PROVIDER_PLUGIN = ValueConstant(config.auth_provider_plugin)
     NODE_DB_PLUGIN = ValueConstant(config.node_db_plugin)
 
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         logger.error(_('No plugin available with Node functionality, system will exit now'))
         sys.exit(1)
 
-    db_auth = plugin_manager.getPluginByName(constants.DB_AUTH_PROVIDER_PLUGIN.value, category='AuthProvider').plugin_object
+    db_auth = plugin_manager.getPluginByName(constants.AUTH_PROVIDER_PLUGIN.value, category='AuthProvider').plugin_object
     if db_auth is None:
         logger.error(_('No plugin available with Auth functionality, system will exit now'))
         sys.exit(1)
@@ -82,7 +82,9 @@ if __name__ == '__main__':
         logger.error(_('Integrity check failed! System will exit now'))
         sys.exit(1)
 
+    # ############### Setup auth provider for accessing Node database #################################
     (user, password) = (None, None)
+    db_auth.set_type(auth_type=interfaces.AuthProvideType.NODE_DB)
     if not db_auth.credentials_exists():
         logger.debug(_('No db credentials found, user will be prompted for same'))
         (user, password) = db_auth.prompt_credentials()
@@ -95,6 +97,7 @@ if __name__ == '__main__':
         (user, password) = db_auth.get_credentials()
         logger.debug(_('Credentials loaded successfully: %s %s') % (user, password))
 
+    # ########################### Initiate Node's database manager ###################################
     logger.info(_('Node\'s database manager has been started'))
     if not db_manager.node_db_exists():
         logger.debug(_('Database is not configured yet and will be initiated now'))

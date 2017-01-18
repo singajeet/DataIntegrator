@@ -7,8 +7,8 @@
 """
 from integrator.log.logger import create_logger
 import integrator.node.interfaces as interfaces
-import os
 import sys
+import os
 from prompt_toolkit import prompt
 from flufl.i18n import initialize
 import keyring
@@ -23,19 +23,25 @@ class DefaultNodeAuthProvider(interfaces.INodeAuthProvider):
 
     _iplugin_name = 'DefaultNodeAuthProvider'
     _iplugin_type = 'AuthProvider'
+    _user_id_file_path = ('%s%s.data_integrator%sdb_auth%s' % (os.path.expanduser('~'), os.sep, os.sep, os.sep))
+    _user_id_file_name = '.node.user.id.store'
+    _type = interfaces.AuthProvideType.GENERIC.value
 
-    _credentials_file_name = '.default.credentials.vault'
-    _credentials_folder_path = ('%s%s.data_integrator%sauth_provider%s' % (os.path.expanduser('~'), os.sep, os.sep, os.sep))
-
-    def __init__(self, file_name='.default.credentials.vault'):
+    def __init__(self):
         """
         """
         self.logger = create_logger('%s.DefaultNodeAuthProvider' % (__name__))
-        self._credentials_file_name = file_name
+
+    def set_type(self, auth_type):
+        self._type = auth_type.value
 
     def credentials_exists(self):
-        self.logger.debug(_('Searching auth credentials at: %s') % self._credentials_folder_path)
-        return os.path.isfile(self._db_credentials_folder_path + self._credentials_file_name)
+        """
+        """
+        if os.path.isfile('%s%s' % (self._user_id_file_path, self._user_id_file_name)):
+            return True
+        else:
+            return False
 
     def prompt_credentials(self):
         self._user_name = prompt(_('Enter username: '))
@@ -44,23 +50,22 @@ class DefaultNodeAuthProvider(interfaces.INodeAuthProvider):
 
     def save_credentials(self):
         try:
-            # if not os.path.isdir(self._credentials_folder_path):
-            #     os.mkdir(self._credentials_folder_path)
-
-            # with open(self._credentials_folder_path + self._credentials_file_name, 'w') as file:
-            #     file.write('%s%s' % (self._user_name, os.linesep))
-            #     file.write(self._password)
-            keyring.set_password('node_db_cred', self._user_name, self._password)
+            self.logger.debug(_('Saving username in default auth store'))
+            with open('%s%s' % (self._user_id_file_path, self._user_id_file_name), 'w') as file:
+                file.write(self._user_name)
+            self.logger.debug(_('Credentials saved to the default keyring vault'))
+            keyring.set_password(self._type, self._user_name, self._password)
         except Exception as ex:
             self.logger.error(_('Unable to save db credentials: %s') % ex.message)
             sys.exit(1)
 
     def load_credentials(self):
         try:
-            # with open(self._credentials_folder_path + self._credentials_file_name, 'r') as file:
-            #     self._user_name = file.readline()
-            #     self._password = file.readline()
-            keyring.get_password('node_db_cred', self._user_name)
+            self.logger.debug(_('Reading username from default auth store'))
+            with open('%s%s' % (self._user_id_file_path, self._user_id_file_name), 'w') as file:
+                self._user_name = file.read()
+            self.logger.debug(_('Reading credentials from default keyring vault'))
+            keyring.get_password(self._type, self._user_name)
         except Exception as ex:
             self.logger.error(_('Unable to load db credentials: %s') % ex.message)
             sys.exit(1)

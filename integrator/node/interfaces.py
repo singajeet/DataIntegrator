@@ -7,7 +7,7 @@
 """
 from flufl.i18n import initialize
 from yapsy.IPlugin import IPlugin
-from constantly import NamedConstant, Names
+from constantly import NamedConstant, Names, ValueConstant, Values
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
@@ -24,6 +24,16 @@ class NodeRole(Names):
     MASTER = NamedConstant()
     SLAVE = NamedConstant()
     BACKUP = NamedConstant()
+
+
+class AuthProvideType(Values):
+    """
+    """
+    GENERIC = ValueConstant('DI_GENERIC')
+    NODE = ValueConstant('DI_NODE')
+    NODE_DB = ValueConstant('DI_NODE_DB')
+    CONTAINER = ValueConstant('DI_CONTAINER')
+    SERVICE = ValueConstant('DI_SERVICE')
 
 
 class INodeType(Names):
@@ -230,8 +240,13 @@ class INodeAuthProvider(IPlugin):
     _password = None
     _iplugin_name = None
     _iplugin_type = None
+    _type = None
 
     def __init__(self, file_name):
+        raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
+            'This functionality is not available as no implementation found'))
+
+    def set_type(self, auth_type):
         raise NodeDBAuthProviderNotImplementedError(_('Node member not implemented'), _(
             'This functionality is not available as no implementation found'))
 
