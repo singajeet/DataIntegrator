@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-import integrator.node.interfaces as interfaces
+import integrator.core.interfaces.node as interfaces
 import sys
 import os
 from prompt_toolkit import prompt
@@ -25,7 +25,7 @@ class DefaultNodeAuthProvider(interfaces.INodeAuthProvider):
     _iplugin_type = 'AuthProvider'
     _user_id_file_path = ('%s%s.data_integrator%sdb_auth%s' % (os.path.expanduser('~'), os.sep, os.sep, os.sep))
     _user_id_file_name = '.node.user.id.store'
-    _type = interfaces.AuthProvideType.GENERIC.value
+    _type = interfaces.AuthProviderType.GENERIC.value
 
     def __init__(self):
         """
@@ -62,7 +62,7 @@ class DefaultNodeAuthProvider(interfaces.INodeAuthProvider):
     def load_credentials(self):
         try:
             self.logger.debug(_('Reading username from default auth store'))
-            with open('%s%s' % (self._user_id_file_path, self._user_id_file_name), 'w') as file:
+            with open('%s%s' % (self._user_id_file_path, self._user_id_file_name), 'r') as file:
                 self._user_name = file.read()
             self.logger.debug(_('Reading credentials from default keyring vault'))
             keyring.get_password(self._type, self._user_name)

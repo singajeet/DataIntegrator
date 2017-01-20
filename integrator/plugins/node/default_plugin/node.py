@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-import integrator.node.interfaces as interfaces
+import integrator.core.interfaces.node as interfaces
 from flufl.i18n import initialize
 import socket
 import os
@@ -49,6 +49,8 @@ class Node(interfaces.INode):
     _kwds = None
     _sys_id_file_path = ('%s%s.data_integrator%s' % (os.path.expanduser('~'), os.sep, os.sep))
     _sys_id_file_name = 'sys.node.id.hash'
+    _loop_counter = 0
+    _task_loop = None
 
     def populate_node_model(self, node):
         node.machine = platform.machine()
@@ -108,3 +110,62 @@ class Node(interfaces.INode):
         """ Default constructor of an node
         """
         self.logger = create_logger('%s.INode' % (__name__))
+
+    # def _stop_loop(self):
+    #     """
+    #     """
+    #     if self._loop_counter < 1:
+    #         self.logger.debug('The stop loop has been called %s times' % self._loop_counter)
+    #         self._loop_counter += 1
+    #         return
+
+    #     self.logger.debug('Loop counter exhausted, task will stop now')
+    #     self._task_loop.stop()
+    #     return
+
+    # def _stop_reactor(self, result):
+    #     """
+    #     """
+    #     self.logger.debug('Shutting down broadcaster after configured duration')
+    #     reactor.stop()
+
+    def find_master(self, broadcaster):
+        """
+        """
+        self.logger.debug('Starting broadcaster to listen on port 9999')
+        broadcaster.start_broadcaster()
+        self.logger.debug('Broadcaster started and finding master')
+        self.logger.debug('Broadcaster Status: %s' % broadcaster.get_master_address())
+        broadcaster.broadcast('A test broadcast message')
+        self.logger.debug('Broadcaster Status: %s' % broadcaster.get_master_address())
+        broadcaster.shutdown_broadcaster()
+
+    def declare_node_as_master(self):
+        pass
+
+    def start_node(self):
+        pass
+
+    def stop_node(self):
+        pass
+
+    def node_status(self):
+        pass
+
+    def install_container(self, container):
+        pass
+
+    def uninstall_container(self, container_id):
+        pass
+
+    def register_container(self, container_id):
+        pass
+
+    def activate_container(self, container_id):
+        pass
+
+    def deactivate_container(self, container_id):
+       pass
+
+    def list_containers(self):
+       pass

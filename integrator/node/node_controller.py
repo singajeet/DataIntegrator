@@ -9,7 +9,8 @@
 # Required modules are imported below
 from __future__ import unicode_literals
 from integrator.log.logger import create_logger
-import integrator.node.interfaces as interfaces
+import integrator.core.interfaces.node as node_interface
+import integrator.core.interfaces.network as network_interface
 from yapsy.PluginManager import PluginManager
 import sys
 from flufl.i18n import initialize
@@ -34,6 +35,7 @@ class constants(Values):
     NODE_PLUGIN = ValueConstant(config.node_plugin)
     AUTH_PROVIDER_PLUGIN = ValueConstant(config.auth_provider_plugin)
     NODE_DB_PLUGIN = ValueConstant(config.node_db_plugin)
+    NETWORK_SERVICE = ValueConstant(config.network_service_plugin)
 
 
 # Main entry point of the node program
@@ -42,9 +44,10 @@ if __name__ == '__main__':
 
     # ####################### Initiate plugin manager ################################################
     logger.info(_('Initiating plug-in manager to load required plug-ins...'))
-    plugin_manager = PluginManager(categories_filter={'Node': interfaces.INode,
-                                                      'AuthProvider': interfaces.INodeAuthProvider,
-                                                      'DatabaseManager': interfaces.INodeDatabaseManager
+    plugin_manager = PluginManager(categories_filter={'Node': node_interface.INode,
+                                                      'AuthProvider': node_interface.INodeAuthProvider,
+                                                      'DatabaseManager': node_interface.INodeDatabaseManager,
+                                                      'NetworkService': network_interface.INetworkService
                                                       })
     logger.debug(_('Plug-in manager has been started'))
     plugin_manager.setPluginPlaces([config.plugin_path])
@@ -67,6 +70,10 @@ if __name__ == '__main__':
         logger.error(_('No plugin available with DB Manager functionality, system will exit now'))
         sys.exit(1)
 
+    broadcaster = plugin_manager.getPluginByName(constants.NETWORK_SERVICE.value, category='NetworkService').plugin_object
+    if broadcaster is None:
+        logger.error(_('No plugin available with Broadcaster functionality, system will exit now'))
+        sys.exit(1)
     # ####################### Load the system details to be used by Node ###############################
     node.load_system_details()
     logger.debug(_('System details loaded'))
@@ -84,7 +91,7 @@ if __name__ == '__main__':
 
     # ############### Setup auth provider for accessing Node database #################################
     (user, password) = (None, None)
-    db_auth.set_type(auth_type=interfaces.AuthProvideType.NODE_DB)
+    db_auth.set_type(auth_type=node_interface.AuthProviderType.NODE_DB)
     if not db_auth.credentials_exists():
         logger.debug(_('No db credentials found, user will be prompted for same'))
         (user, password) = db_auth.prompt_credentials()
@@ -111,3 +118,6 @@ if __name__ == '__main__':
         db_manager.load_node_details(v_sys_id)
 
     logger.debug(_('Database configured successfully!'))
+
+    # ########################## Start broadcaster to check for master node ##########################
+    node.find_master(broadcaster)

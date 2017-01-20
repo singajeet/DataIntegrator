@@ -11,6 +11,7 @@ from constantly import NamedConstant, Names, ValueConstant, Values
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
+from twisted.internet.selectreactor import SelectReactor
 
 
 Base = declarative_base()
@@ -26,7 +27,7 @@ class NodeRole(Names):
     BACKUP = NamedConstant()
 
 
-class AuthProvideType(Values):
+class AuthProviderType(Values):
     """
     """
     GENERIC = ValueConstant('DI_GENERIC')
@@ -168,8 +169,8 @@ class IAbstractNode:
         NodeNotImplementedError(_('Node member not implemented'), _('This functionality is not available as no implementation found'))
 
 
-# ######################### An abstract interface of Node as plugin ###############################
-class INode(IPlugin, IAbstractNode):
+# ############### An abstract interface of Node as plugin and reactor all services##################
+class INode(IPlugin, IAbstractNode, SelectReactor):
     """interface for the plugins implementations
     """
 

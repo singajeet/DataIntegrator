@@ -6,7 +6,7 @@
 .. moduleauthor:: Ajeet Singh <singajeet@gmail.com>
 """
 from integrator.log.logger import create_logger
-import integrator.node.interfaces as interfaces
+import integrator.core.interfaces.node as interfaces
 import os
 import sys
 from sqlalchemy import create_engine
