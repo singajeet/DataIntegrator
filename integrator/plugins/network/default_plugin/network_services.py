@@ -24,34 +24,39 @@ class NodeBroadcaster(INetworkFactory):
         self.logger = create_logger('%s.INode' % (__name__))
         self._from_ip_address = from_ip
         self._broadcast_port = broadcast_port
-        self._broadcast_protocol = NodeBroadcasterProtocol()
         self.logger.debug('Node broadcaster service has been started')
 
-    @run_in_reactor
-    def start_broadcaster(self):
-        """
-        """
-        self.logger.debug('Starting up the broadcast protocol')
-        reactor.listenUDP(self._broadcast_port, self._broadcast_protocol)
-        reactor.run()
-        self.logger.debug('Broadcast protocol is running and waiting for incoming mesages')
+    def buildProtocol(self, ip_address):
+        self._protocol = NodeBroadcasterProtocol('127.0.0.1', 9999)
+        return self._protocol
 
-    def broadcast(self, message):
-        """
-        """
-        self._broadcast_protocol.send_message(message)
-        self.logger.debug('Message broadcasted to all nodes on the network: %s' % message)
+    def sendMessage(self, message):
+        self._protocol.send_message(message)
+    # @run_in_reactor
+    # def start_broadcaster(self):
+    #     """
+    #     """
+    #     self.logger.debug('Starting up the broadcast protocol')
+    #     reactor.listenUDP(self._broadcast_port, self._broadcast_protocol)
+    #     reactor.run()
+    #     self.logger.debug('Broadcast protocol is running and waiting for incoming mesages')
 
-    @wait_for(timeout=60)
-    def get_master_address(self):
-        address = self._broadcast_protocol.status()
-        self.logger.debug('Find master operation result: %s' % address)
-        return address
+    # def broadcast(self, message):
+    #     """
+    #     """
+    #     self._broadcast_protocol.send_message(message)
+    #     self.logger.debug('Message broadcasted to all nodes on the network: %s' % message)
 
-    @run_in_reactor
-    def shutdown_broadcaster(self):
-        reactor.stop()
-        self.logger.debug('Broadcaster shutdown completed successfully')
+    # @wait_for(timeout=60)
+    # def get_master_address(self):
+    #     address = self._broadcast_protocol.status()
+    #     self.logger.debug('Find master operation result: %s' % address)
+    #     return address
+
+    # @run_in_reactor
+    # def shutdown_broadcaster(self):
+    #     reactor.stop()
+    #     self.logger.debug('Broadcaster shutdown completed successfully')
 
 class NodeBroadcasterProtocol(INetworkDatagramProtocol):
 
