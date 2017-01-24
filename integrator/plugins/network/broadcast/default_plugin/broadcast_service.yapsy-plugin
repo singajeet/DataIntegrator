@@ -1,6 +1,6 @@
 [Core]
-Name = NodeBroadcaster
-Module = network_services
+Name = NodeBroadcasterService
+Module = broadcast_service
 
 [Documentation]
 Description = Default implementation of an node database manager

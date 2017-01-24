@@ -75,7 +75,7 @@ class INetworkTCProtocol(INetworkProtocol, Protocol):
 # ######################################################################################
 
 
-class INetworkFactory(Iplugin, Factory):
+class INetworkFactory(IPlugin, Factory):
     """An subclass of twisted Factory class
         All below attributes and methods should be
         implemented by base class

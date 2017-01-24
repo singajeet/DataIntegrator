@@ -4,36 +4,196 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"interfaces\tmodule"
+			],
+			[
+				"get",
+				"get_auth_plugin\tfunction"
+			],
+			[
+				"plu",
+				"plugin_manager\tmodule"
+			],
+			[
+				"load",
+				"load_filters_from_config\tfunction"
+			],
+			[
+				"ini",
+				"init_plugin_manager\tfunction"
+			],
+			[
+				"add",
+				"add_filter\tfunction"
+			],
+			[
+				"broad",
+				"broadcast_server"
+			],
+			[
+				"Node",
+				"NodeBroadcasterFactory"
+			],
+			[
+				"IN",
+				"INetworkService"
+			],
+			[
+				"INetwork",
+				"INetworkService\t(node_controller.py)"
+			],
+			[
+				"no",
+				"notify_new_node_up"
+			],
+			[
+				"gethos",
+				"gethostbyname\t(node.py)"
+			],
+			[
+				"send",
+				"send_message"
+			],
+			[
+				"wait",
+				"wait_for"
+			],
+			[
+				"start",
+				"startProtocol"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"int",
+				"integrator"
+			],
+			[
+				"_broad",
+				"_broadcast_protocol"
+			],
+			[
+				"_broa",
+				"_broadcast_port"
+			],
+			[
+				"liste",
+				"listenUDP\t(node.py)"
+			],
+			[
+				"plug",
+				"plugin_object"
+			],
+			[
+				"run",
+				"run_in_reactor"
+			],
+			[
+				"inte",
+				"integrator"
+			],
+			[
+				"crea",
+				"create_logger\t(node_controller.py)"
+			],
+			[
+				"data",
+				"datagram"
+			],
+			[
+				"set",
+				"setServiceParent\tfunction"
+			],
+			[
+				"I",
+				"INetworkDatagramProtocol\tclass"
+			],
+			[
+				"Pro",
+				"Protocol\tclass"
+			],
+			[
+				"INe",
+				"INetworkProtocol"
+			],
+			[
+				"_st",
+				"_stop_reactor\tfunction"
+			],
+			[
+				"Broad",
+				"Broadcaster\tclass"
+			],
+			[
+				"Data",
+				"DatagramProtocol"
+			],
+			[
+				"pr",
+				"protocol\tmodule"
+			],
+			[
+				"_use",
+				"_user_name\tstatement"
+			],
+			[
+				"wr",
+				"write\tfunction"
+			],
+			[
+				"_user",
+				"_user_id_file_name\tstatement"
+			],
+			[
+				"is",
+				"isfile\tfunction"
+			],
+			[
+				"N",
+				"NODE_DB\tstatement"
+			],
+			[
+				"A",
+				"AuthProvideType\tclass"
+			],
+			[
+				"Va",
+				"ValueConstant"
+			],
+			[
+				"Value",
+				"ValueConstant"
+			],
+			[
+				"node",
+				"node_plugin"
+			],
+			[
+				"Nam",
+				"NamedConstant"
+			],
+			[
+				"g",
+				"getPluginByName\tfunction"
+			],
+			[
+				"interfa",
+				"interfaces.INode"
+			],
+			[
+				"ca",
+				"categories_filter\t(project_manager.py)"
+			],
+			[
 				"IFile",
 				"IFileType\t(data_objects.py)"
 			],
 			[
-				"data",
-				"data_objects\tmodule"
-			],
-			[
 				"INode",
 				"INodeDBCredentials\tclass"
-			],
-			[
-				"set",
-				"setPluginPlaces\tfunction"
-			],
-			[
-				"plu",
-				"PluginManager\tmodule"
-			],
-			[
-				"IN",
-				"INodeDatabaseManager\tclass"
-			],
-			[
-				"load",
-				"load_node_details\tfunction"
-			],
-			[
-				"node",
-				"node_details_exists\tfunction"
 			],
 			[
 				"utc",
@@ -50,10 +210,6 @@
 			[
 				"sys",
 				"sys_identifier"
-			],
-			[
-				"get",
-				"get_node_model\tfunction"
 			],
 			[
 				"inter",
@@ -80,24 +236,12 @@
 				"_db_credentials_file_path"
 			],
 			[
-				"is",
-				"isdir\tfunction"
-			],
-			[
 				"_db_c",
 				"_db_credentials_folder_path\tstatement"
 			],
 			[
-				"inte",
-				"integrator.log.logger\t(logger.py)"
-			],
-			[
 				"create",
 				"create_logger"
-			],
-			[
-				"crea",
-				"create_logger\tfunction"
 			],
 			[
 				"cr",
@@ -116,10 +260,6 @@
 				"password"
 			],
 			[
-				"pr",
-				"prompt_credentials\tfunction"
-			],
-			[
 				"cred",
 				"credentials_exists\t(interfaces.py)"
 			],
@@ -130,14 +270,6 @@
 			[
 				"D",
 				"DefaultNodeDatabaseManager\tclass"
-			],
-			[
-				"N",
-				"Node\tclass"
-			],
-			[
-				"de",
-				"default_plugin\tmodule"
 			],
 			[
 				"_",
@@ -236,10 +368,6 @@
 				"SHA256\tmodule"
 			],
 			[
-				"int",
-				"integrator\tmodule"
-			],
-			[
 				"_iplu",
 				"_iplugin_type\tstatement"
 			],
@@ -280,10 +408,6 @@
 				"FileDataObjectNotImplementedError"
 			],
 			[
-				"in",
-				"interface"
-			],
-			[
 				"_role",
 				"_role_type"
 			],
@@ -296,16 +420,8 @@
 				"ILoggerServer"
 			],
 			[
-				"I",
-				"ILoggerType\tclass"
-			],
-			[
 				"_ser",
 				"_server_type\tstatement"
-			],
-			[
-				"start",
-				"start_log_server"
 			],
 			[
 				"s",
@@ -398,122 +514,6 @@
 			[
 				"m",
 				"meta_database_interfaces\tmodule"
-			],
-			[
-				"Data",
-				"Database"
-			],
-			[
-				"pri",
-				"print_details_as_logs\tfunction"
-			],
-			[
-				"SQ",
-				"DBTYPE_SQLITE_MEM\tstatement"
-			],
-			[
-				"test",
-				"test_database\tfunction"
-			],
-			[
-				"Setup",
-				"SetupManager\tclass"
-			],
-			[
-				"ipl",
-				"iplugin_name\tstatement"
-			],
-			[
-				"DB",
-				"DBTYPE_SQLLITE_MEM\tstatement"
-			],
-			[
-				"getpl",
-				"getPluginsOfCategory\tfunction"
-			],
-			[
-				"pl",
-				"plugin_manager\tstatement"
-			],
-			[
-				"Plugin",
-				"PluginManager\tclass"
-			],
-			[
-				"Pl",
-				"PluginManager\tclass"
-			],
-			[
-				"i",
-				"iplugins\tmodule"
-			],
-			[
-				"IP",
-				"IPlugin\tclass"
-			],
-			[
-				"S",
-				"SetupManager"
-			],
-			[
-				"script",
-				"scripts.core.manage_setup.install.py\t(install.py)"
-			],
-			[
-				"meta",
-				"metadata_db"
-			],
-			[
-				"pro",
-				"prompt_toolkit"
-			],
-			[
-				"so",
-				"source_name\tstatement"
-			],
-			[
-				"file",
-				"file_path\tstatement"
-			],
-			[
-				"db_s",
-				"db_session\tstatement"
-			],
-			[
-				"com",
-				"commit\tfunction"
-			],
-			[
-				"sql",
-				"sql_debug\tfunction"
-			],
-			[
-				"exe",
-				"execute"
-			],
-			[
-				"close",
-				"close_db_connection\tfunction"
-			],
-			[
-				"tes",
-				"test_db_connection\tfunction"
-			],
-			[
-				"cre",
-				"create_db_session\tfunction"
-			],
-			[
-				"Exce",
-				"Exception\tclass"
-			],
-			[
-				"Ecep",
-				"Exception\tclass"
-			],
-			[
-				"Or",
-				"OracleMetadataDatabase\tclass"
 			]
 		]
 	},
@@ -523,7 +523,25 @@
 			"file": "integrator/node/node_controller.py",
 			"settings":
 			{
-				"buffer_size": 3760,
+				"buffer_size": 3902,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node.ini",
+			"settings":
+			{
+				"buffer_size": 1815,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "integrator/core/manager/plugin_manager.py",
+			"settings":
+			{
+				"buffer_size": 3657,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -610,20 +628,42 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_static",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/_templates",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/manager",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/config",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/container",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin"
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider/node_auth_provider",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider/node_auth_provider/default_plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin"
 	],
 	"file_history":
 	[
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/broadcast/default_plugin/broadcast_service.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/broadcast/default_plugin/broadcast_service.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/network.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/servers/broadcast_server.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/node.ini",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin/node.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/broadcast_plugin/broadcaster.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/broadcast_plugin/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/node.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider/node_auth_provider/default_plugin/node_auth_provider.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/database/node_db/default_plugin/node_db_manager.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/default_plugin/network_services.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/default_plugin/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/network/__init__.py",
+		"/C/Users/asingh/.data_integrator/db_auth/.node.user.id.store",
+		"/C/Users/asingh/.data_integrator/db_auth/.default.db.credentials.store",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/interfaces.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider/node_auth_provider/default_plugin/node_auth_provider.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/auth_provider/__init__.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db_auth_provider/default_plugin/node_db_auth_provider.py",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db_auth_provider/default_plugin/node_db_auth_provider.yapsy-plugin",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_auth_provider/default_plugin/db_auth_provider.yapsy-plugin",
+		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/container/__init__.py",
+		"/C/Users/asingh/usb_driver/Unknown_Device.inf",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/data_objects/files/csv_file.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/config/__init__.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/core/interfaces/data_objects.py",
@@ -633,14 +673,11 @@
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/database/meta_sqlite_mem.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/config/default_config_agent.yapsy-plugin",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin/node_db_manager.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/interfaces.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node_db/default_plugin/node_db_manager.yapsy-plugin",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin/db_credentials.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/node/default_plugin/node.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/node/node_controller.py",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/log/logger.py",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/sys.node.id.hash",
 		"/C/Users/asingh/Hands-On/Python/DataIntegrator/integrator/plugins/db_credentials/default_plugin/db_credentials.yapsy-plugin",
@@ -729,29 +766,7 @@
 		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/README.txt",
 		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/BUILD.txt",
 		"/C/Users/asingh/Anaconda2/cx_Oracle-doc/samples/DatabaseStartup.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/iplugins/file_type_interfaces.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/meta_database_interfaces.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/data_object/file_type.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/file_source.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/yapsy/PluginManager.py",
-		"/C/Users/asingh/Anaconda2/Lib/site-packages/yapsy/IPlugin.py",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/sublimelinter.py",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/commands.py",
-		"/C/Program Files/Sublime Text 3/sublime_plugin.py",
-		"/C/Program Files/Sublime Text 3/sublime.py",
-		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/C/Users/asingh/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/source_abstract.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/manage_setup/iplugins/__init__.py",
-		"/C/Users/asingh/Hands-On/Python/DataIntegrator/scripts/core/source/csv_file_source.py",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/log/rabbit@asingh-HP.log",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/rabbitmq.config.example",
-		"/C/Windows/.erlang.cookie",
-		"/C/Users/asingh/.erlang.cookie",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/db/rabbit@asingh-HP-mnesia/cluster_nodes.config",
-		"/C/Users/asingh/AppData/Roaming/RabbitMQ/rabbitmq.config"
+		"/C/Users/asingh/Anaconda2/Lib/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py"
 	],
 	"find":
 	{
@@ -804,15 +819,96 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3760,
+						"buffer_size": 3902,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2125,
-								2125
+								2098,
+								2098
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 637.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "node.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1815,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1022,
+								1022
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "integrator/core/manager/plugin_manager.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								596,
+								596
 							]
 						],
 						"settings":
@@ -828,15 +924,13 @@
 									"selector": "source.python - string - constant.numeric"
 								}
 							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 202.0,
+						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -846,7 +940,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "message templates/templates",
 					"semi_transient": false,
 					"settings":
@@ -859,7 +953,7 @@
 						[
 							[
 								59,
-								59
+								35
 							]
 						],
 						"settings":
@@ -870,7 +964,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
